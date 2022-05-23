@@ -1,1 +1,1 @@
-# This template is deprecated
+# Wildberries project
