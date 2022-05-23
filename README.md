@@ -1,2 +1,1 @@
-# Wildberries
-TMS-24 project
+# This template is deprecated
