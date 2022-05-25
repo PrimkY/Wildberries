@@ -1,5 +1,341 @@
-*{
-  margin: 0 auto;
-  min-height: 1000px;
-  background-color: #000;
+    /*Reset*/
+  a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text]
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
+
+/*Root for change the base color*/
+
+  ﻿
+    /*Reset*/
+  a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text]
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
+
+/*Root for change the base color*/
+$main__color: #786f6f;
+
+/*Defolt settings , fonts , size and e.t.c. before work*/
+* {
+  box-sizing: border-box;
 }
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+html {
+  padding: 40px 100px;
+  background: url(https://kartinkin.net/uploads/posts/2021-07/1625584167_27-kartinkin-com-p-fon-v-stile-khaimolta-bravl-stars-krasivie-28.jpg) no-repeat center;
+  background-size: cover;
+}
+
+body {
+  font: 400 19px/21px 'PT Sans', 'Inter', 'sans-serif';
+  color: #030303;
+  background-color: $main__color;
+  border: 6px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px #000;
+}
+
+input,
+textarea {
+  background-color: inherit;
+  resize: none;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+h1,
+.title1 {
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 700;
+}
+
+h2,
+.title2 {
+  font-size: 40px;
+  line-height: 52px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+h3,
+.title3 {
+  font-size: 20px;
+  line-height: 19px;
+  font-weight: 700;
+}
+
+h4,
+.title4 {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 700;
+}
+
+h5,
+.title5 {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+h6,
+.title6 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.container {
+  max-width: 1350px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.basket__btn {
+  display: inline-block;
+  border: 2px solid #000000;
+  outline: none;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+  height: 100%;
+  background-color: #ac74d4;
+}
+
+//Header
+.header {
+  padding: 50px 0 60px 0;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  column-gap: 25px;
+  align-items: center;
+}
+
+.header__logo {
+  color: #eda4ed;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+  &:hover {
+    transform: scale(1.1);
+    color: #e470e4;
+  }
+}
+
+.header__search {
+  padding: 20px 25px;
+  border: 2px solid #000000;
+  outline: none;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 10px;
+  background-color: #ffb0e6;
+  font-weight: 400;
+  &::placeholder {
+    color: #686868;
+  }
+}
+
+.header__basket {
+  border-radius: 10px;
+  &:hover {
+    transform: scale(1.1);
+    background-color: #9e59cf;
+  }
+}
+
+
+//Board
+.board {
+  background-color: #3f3f3f;
+  position: relative;
+  border-radius: 30px;
+  border: 5px solid #000;
+  width: 100%;
+  min-height: 500px;
+}
+
+.board__prev, .board__next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-size: 30px;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: #ffffff;
+  transition: all 0.1s cubic-bezier(0,.99,.51,.53);
+  &:hover {
+    background-color: #eda4ed;
+    color: #fff;
+  }
+}
+.board__prev {
+  left: 10px;
+}
+.board__next {
+  right: 10px;
+}
+
+
+.board__nav {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  column-gap: 15px;
+}
+.board__item {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-size: 30px;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: #ffffff;
+  transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+}
+
+.board__item--acive {
+  background-color: #5e5353;
+  transform: scale(1.3);
+}
+
+//Popular
+.popular {
+  margin-top: 30px;
+  padding: 20px 40px;
+}
+
+.popular__title {
+  margin-left: 50px;
+}
+
+.popular__row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 20px;
+}
+
+.popular__card {
+  background-color: #fff;
+  min-height: 300px;
+  border: 3px solid #000;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+  &:hover {
+    .popular__fast-check {
+      opacity: 1;
+    }
+    transform: scale(1.1);
+    box-shadow: 0 0 100px #fff;
+    border: none;
+  }
+}
+.popular__fast-check {
+  transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+  opacity: 0;
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: #c2c2c2;
+  z-index: 2;
+}
+.popular__discount {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 15px;
+}
+.popular__add {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.popular__price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0 5px 0;
+}
+
+.popular__price-now {
+  font-weight: bold;
+  font-size: 17px;
+}
+.popular__price-was {
+  text-decoration: line-through;
+  font-size: 15px;
+}
+.popular__name {
+}
+
+
+/* .header__burger {
+    position: relative;
+}
+
+.burger__line {
+    position: absolute;
+    top: 45%;
+    left: 15px;
+    width: 15px;
+    height: 1.5px;
+    background-color: #fff;
+    border-radius: 20px;
+
+    &::before ,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0px;
+            background-color: #fff;
+            height: 1.5px;
+            width: 15px;
+            border-radius: 20px;
+        }
+        &::before {
+            top: 5px;
+        }
+        &::after {
+            bottom: 5px;
+        }
+
+}
+
+ */

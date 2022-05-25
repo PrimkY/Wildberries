@@ -5,9 +5,115 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
   <title>Wildberries</title>
 </head>
 <body>
+<div class="container">
+  <header class="header">
+    <a class="header__logo" href="#"><img src="/src/assets/Wildberries_Logo.png" alt="logo"></a>
+    <!--       <div class="header__burger">
+      <span class="burger__line"></span>
+    </div> -->
+    <input type="text" class="header__search" placeholder="Что вы ищете?">
+    <button class="header__basket basket__btn">Корзина</button>
+  </header>
 
+  <main class="main">
+
+    <section class="board">
+      <button class="board__prev"><span class="arrow">◀</span></button>
+      <button class="board__next"><span class="arrow">▶</span></button>
+      <ul class="board__nav">
+        <li class="board__item board__item--acive"></li>
+        <li class="board__item"></li>
+        <li class="board__item"></li>
+        <li class="board__item"><i class="fa-solid fa-arrow-down"></i></li>
+        <li class="board__item"></li>
+      </ul>
+    </section>
+
+    <section class="popular">
+      <h2 class="popular__title">Хиты продаж</h2>
+      <ul class="popular__row">
+        <li class="popular__item">
+          <div class="popular__card">
+            <a class="popular__fast-check" href="#">Быстрый просмотр</a>
+            <span class="popular__discount">-10%</span>
+            <button class="popular__add">🔸</button>
+          </div>
+          <div class="popular__price-row">
+            <p class="popular__price-now">900p</p>
+            <p class="popular__price-was">1000p</p>
+          </div>
+          <div class="popular__name">Штаны</div>
+        </li>
+        <li class="popular__item">
+          <div class="popular__card">
+            <a class="popular__fast-check" href="#">Быстрый просмотр</a>
+            <span class="popular__discount">-10%</span>
+            <button class="popular__add">🔸</button>
+          </div>
+          <div class="popular__price-row">
+            <p class="popular__price-now">900p</p>
+            <p class="popular__price-was">1000p</p>
+          </div>
+          <div class="popular__name">Штаны</div>
+        </li>
+        <li class="popular__item">
+          <div class="popular__card">
+            <a class="popular__fast-check" href="#">Быстрый просмотр</a>
+            <span class="popular__discount">-10%</span>
+            <button class="popular__add">🔸</button>
+          </div>
+          <div class="popular__price-row">
+            <p class="popular__price-now">900p</p>
+            <p class="popular__price-was">1000p</p>
+          </div>
+          <div class="popular__name">Штаны</div>
+        </li>
+        <li class="popular__item">
+          <div class="popular__card">
+            <a class="popular__fast-check" href="#">Быстрый просмотр</a>
+            <span class="popular__discount">-10%</span>
+            <button class="popular__add">🔸</button>
+          </div>
+          <div class="popular__price-row">
+            <p class="popular__price-now">900p</p>
+            <p class="popular__price-was">1000p</p>
+          </div>
+          <div class="popular__name">Штаны</div>
+        </li>
+        <li class="popular__item">
+          <div class="popular__card">
+            <a class="popular__fast-check" href="#">Быстрый просмотр</a>
+            <span class="popular__discount">-10%</span>
+            <button class="popular__add">🔸</button>
+          </div>
+          <div class="popular__price-row">
+            <p class="popular__price-now">900p</p>
+            <p class="popular__price-was">1000p</p>
+          </div>
+          <div class="popular__name">Штаны</div>
+        </li>
+        <li class="popular__item">
+          <div class="popular__card">
+            <a class="popular__fast-check" href="#">Быстрый просмотр</a>
+            <span class="popular__discount">-10%</span>
+            <button class="popular__add">🔸</button>
+          </div>
+          <div class="popular__price-row">
+            <p class="popular__price-now">900p</p>
+            <p class="popular__price-was">1000p</p>
+          </div>
+          <div class="popular__name">Штаны</div>
+        </li>
+      </ul>
+    </section>
+  </main>
+</div>
 </body>
+
 </html>
