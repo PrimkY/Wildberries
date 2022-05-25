@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    font: 400 26px/21px 'PT Sans', 'Inter', 'sans-serif';
+    font: 400 19px/21px 'PT Sans', 'Inter', 'sans-serif';
     color: #030303;
     background-color: $main__color;
     border: 6px solid rgb(0, 0, 0);
@@ -133,10 +133,10 @@ h6,
     text-align: center;
     font-size: 25px;
     border-radius: 10px;
-    background-color: #f396d5;
+    background-color: #ffb0e6;
     font-weight: 400;
     &::placeholder {
-        color: #000;
+        color: #686868;
     }
 }
 
@@ -219,10 +219,83 @@ h6,
     transform: scale(1.3);
 }
 
+//Popular
+.popular {
+    margin-top: 30px;
+    padding: 20px 40px;
+}
 
+.popular__title {
+    margin-left: 50px;
+}
 
+.popular__row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+}
 
+.popular__card {
+    background-color: #fff;
+    min-height: 300px;
+    border: 3px solid #000;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+        &:hover {
+            .popular__fast-check {
+                opacity: 1;
+            }
+            transform: scale(1.1);
+            box-shadow: 0 0 100px #fff;
+            border: none;
+        }
+}
+.popular__fast-check {
+    transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+    opacity: 0;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #c2c2c2;
+    z-index: 2;
+}
+.popular__discount {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 15px;
+}
+.popular__add {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.popular__price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0 5px 0;
+}
 
+.popular__price-now {
+    font-weight: bold;
+    font-size: 17px;
+}
+.popular__price-was {
+    text-decoration: line-through;
+    font-size: 15px;
+}
+.popular__name {
+}
 
 
 /* .header__burger {
