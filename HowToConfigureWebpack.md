@@ -8,7 +8,7 @@
   const path = require('path');
 
   module.exports = {
-    entry: './src/index.ts',
+    entry: './src/index.js',
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist'),
@@ -105,7 +105,7 @@ Also add new script to package.json: `"dev": "webpack --env development"`.
 ```js
   module.exports = ({ development }) => ({
     devtool: development ? 'inline-source-map' : false,
-  }
+  })
 ```
 13. Add dev server ([documentation](https://webpack.js.org/configuration/dev-server/))
 ```js
@@ -198,7 +198,7 @@ module.exports = ({ development }) => ({
   mode: development ? 'development' : 'production',
   devtool: development ? 'inline-source-map' : false,
   entry: {
-    main: './src/index.ts',
+    main: './src/index.js',
   },
   output: {
     filename: '[name].[contenthash].js',

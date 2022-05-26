@@ -26,12 +26,12 @@ a {
 
 html {
   padding: 40px 100px;
-  background: url(https://kartinkin.net/uploads/posts/2021-07/1625584167_27-kartinkin-com-p-fon-v-stile-khaimolta-bravl-stars-krasivie-28.jpg) no-repeat center;
+  background: url(https://creativo.one/lessons/les5669/01.jpg) no-repeat center;
   background-size: cover;
 }
 
 body {
-  font: 400 19px/21px 'PT Sans', 'Inter', 'sans-serif';
+  font: 400 19px/21px 'Source Sans Pro';
   color: #030303;
   background-color: $main__color;
   border: 6px solid rgb(0, 0, 0);
@@ -119,9 +119,10 @@ h6,
 .header {
   padding: 50px 0 60px 0;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 0.4fr 1fr 5fr 1fr;
   column-gap: 25px;
   align-items: center;
+  position: sticky;
 }
 
 .header__logo {
@@ -130,30 +131,102 @@ h6,
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
   &:hover {
     transform: scale(1.1);
-    color: #e470e4;
+    color: #cb11ab;
   }
 }
 
+.header__input-wrapper {
+  position: relative;
+}
+
 .header__search {
+  width: 100%;
   padding: 20px 25px;
   border: 2px solid #000000;
   outline: none;
   text-align: center;
   font-size: 25px;
+  padding: 16px 120px 16px 44px;
   border-radius: 10px;
+  font-family: 'Source Sans Pro';
   background-color: #ffb0e6;
   font-weight: 400;
   &::placeholder {
     color: #686868;
   }
 }
+.fa-magnifying-glass {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.header__basket-link {
+  height: 100%;
+}
 
 .header__basket {
   border-radius: 10px;
+  font-family: 'Source Sans Pro';
   &:hover {
     transform: scale(1.1);
-    background-color: #9e59cf;
+    background-color: #cb11ab;
+    color: #fff;
+    .fa-basket-shopping {
+      transform: scale(1.2);
+    }
   }
+  .fa-basket-shopping {
+    margin-left: 10px;
+  }
+}
+
+//Aside
+.menu {
+  display: none;
+  position: relative;
+  background-color: #fff;
+  padding: 45px 25px 15px 25px;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100vh;
+}
+
+.menu__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.menu__category {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px 15px;
+  .fa-solid, .fa-brands {
+    font-size: 25px;
+    color: #686868;
+    margin-right: 20px;
+  }
+  &:hover {
+    background-color: #cb11ab;
+    .fa-solid {
+      color: #fff;
+    }
+    color: #fff;
+  }
+}
+
+.menu__item + .menu__item {
+  margin-top: 10px;
 }
 
 
@@ -180,11 +253,11 @@ h6,
   align-items: center;
   padding: 15px;
   font-size: 30px;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid #000000;
   background-color: #ffffff;
   transition: all 0.1s cubic-bezier(0,.99,.51,.53);
   &:hover {
-    background-color: #eda4ed;
+    background-color: #cb11ab;
     color: #fff;
   }
 }
@@ -246,6 +319,7 @@ h6,
 .popular__card {
   background-color: #fff;
   min-height: 300px;
+  font-family: 'Source Sans Pro';
   border: 3px solid #000;
   border-radius: 15px;
   display: flex;
@@ -264,6 +338,7 @@ h6,
 }
 .popular__fast-check {
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+  cursor: zoom-in;
   opacity: 0;
   padding: 5px 10px;
   font-size: 15px;
@@ -286,6 +361,12 @@ h6,
   border: 2px solid #000;
   border-radius: 50%;
   cursor: pointer;
+  .fa-plus {
+    font-size: 20px;
+  }
+  &:hover {
+    background-color: #cccccc;
+  }
 }
 .popular__price-row {
   display: flex;
@@ -304,16 +385,25 @@ h6,
 }
 
 
-/* .header__burger {
-    position: relative;
+//Burger
+.header__burger {
+  position: relative;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  &:hover {
+    .burger__line, .burger__line::before, .burger__line::after {
+      background-color: #d3d3d3;
+    }
+  }
 }
 
 .burger__line {
     position: absolute;
     top: 45%;
-    left: 15px;
-    width: 15px;
-    height: 1.5px;
+    left: 0px;
+    width: 30px;
+    height: 3.5px;
     background-color: #fff;
     border-radius: 20px;
 
@@ -323,17 +413,16 @@ h6,
             position: absolute;
             left: 0px;
             background-color: #fff;
-            height: 1.5px;
-            width: 15px;
+            height: 3.5px;
+            width: 30px;
             border-radius: 20px;
         }
         &::before {
-            top: 5px;
+            top: 10px;
         }
         &::after {
-            bottom: 5px;
+            bottom: 10px;
         }
-
 }
 
- */
+
