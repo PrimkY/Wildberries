@@ -131,7 +131,7 @@ h6,
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
   &:hover {
     transform: scale(1.1);
-    color: #cb11ab;
+    color: #f051d4;
   }
 }
 
@@ -168,6 +168,12 @@ h6,
   height: 100%;
 }
 
+.responsive-basket {
+  display: none;
+  font-size: 30px;
+  margin-left: 15px;
+}
+
 .header__basket {
   border-radius: 10px;
   font-family: 'Source Sans Pro';
@@ -176,7 +182,7 @@ h6,
     background-color: #cb11ab;
     color: #fff;
     .fa-basket-shopping {
-      transform: scale(1.2);
+      transform: scale(1.2);;
     }
   }
   .fa-basket-shopping {
@@ -312,8 +318,8 @@ h6,
 
 .popular__row {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  column-gap: 20px;
+  grid-template-columns: repeat( auto-fit, minmax(175px, 1fr) );
+  gap: 20px;
 }
 
 .popular__card {
@@ -404,7 +410,7 @@ h6,
     left: 0px;
     width: 30px;
     height: 3.5px;
-    background-color: #fff;
+    background-color: #c2c2c2;
     border-radius: 20px;
 
     &::before ,
@@ -412,7 +418,7 @@ h6,
             content: '';
             position: absolute;
             left: 0px;
-            background-color: #fff;
+            background-color: #c2c2c2;
             height: 3.5px;
             width: 30px;
             border-radius: 20px;
@@ -426,3 +432,137 @@ h6,
 }
 
 
+
+//Responsive / Media queries
+@media only screen and (max-width: 1200px) {
+  html {
+    padding: 10px 40px;
+    background: url(https://creativo.one/lessons/les5669/01.jpg) no-repeat center;
+    background-size: cover;
+  }
+  
+  body {
+    font: 400 19px/21px 'Source Sans Pro';
+    color: #030303;
+    background-color: $main__color;
+    border: 6px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 10px #000;
+  }
+  
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  
+  h1,
+  .title1 {
+    font-size: 30px;
+    line-height: 34px;
+    font-weight: 700;
+  }
+  
+  h2,
+  .title2 {
+    font-size: 33px;
+    line-height: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  h3,
+  .title3 {
+    font-size: 20px;
+    line-height: 15px;
+    font-weight: 700;
+  }
+  
+  h4,
+  .title4 {
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 700;
+  }
+  
+  h5,
+  .title5 {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+  }
+  
+  h6,
+  .title6 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 10px;
+  }
+  
+  .container {
+    max-width: 1150px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  
+  .basket__btn {
+    display: inline-block;
+    border: 2px solid #000000;
+    outline: none;
+    font-size: 20px;
+    line-height: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+    height: 100%;
+    background-color: #ac74d4;
+  }
+
+  .fa-basket-shopping {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .header {
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 25px;
+    z-index: 3;
+    width: 100%;
+    background: linear-gradient(to right,#cb11ab 0,#481173 100%) no-repeat;
+  }
+  .header__search {
+    display: none;
+  }
+  .header__basket {
+    display: none;
+  }
+  .responsive-basket {
+    display: block;
+    cursor: pointer;
+  }
+  .fa-magnifying-glass {
+    position: static;
+    transform: translateY(0);
+    margin-left: 10px;
+  }
+  .header__input-wrapper {
+    color: #c2c2c2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .responsive-basket:active, .fa-magnifying-glass:active {
+    color: #ac74d4;
+  }
+  .board {
+    margin-top: 80px;
+  }
+}
