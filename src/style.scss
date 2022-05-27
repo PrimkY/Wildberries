@@ -122,7 +122,6 @@ h6,
   grid-template-columns: 0.4fr 1fr 5fr 1fr;
   column-gap: 25px;
   align-items: center;
-  position: sticky;
 }
 
 .header__logo {
@@ -564,5 +563,12 @@ h6,
   }
   .board {
     margin-top: 80px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    padding: 0;
+    background: none;
   }
 }
