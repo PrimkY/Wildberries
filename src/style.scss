@@ -205,7 +205,13 @@ h3, h4, h5, p {
               font-size: 16px;
               background-color: var(--card-background-color);
               border-radius: 5px;
+              margin: 0 0 0 10px;
             }
+            .product__card__picture-to-basket {
+              margin: 0 10px 0 0;
+            }
+
+
             .product__card__picture-to-basket:hover {
               background-color: var(--but-hover-color);
             }
