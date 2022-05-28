@@ -12,7 +12,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
 
 /*Root for change the base color*/
-$main__color: #786f6f;
+$main__color: #a4a4a4;
 
 /*Defolt settings , fonts , size and e.t.c. before work*/
 * {
@@ -26,7 +26,6 @@ a {
 
 html {
   padding: 40px 100px;
-  background: url(https://creativo.one/lessons/les5669/01.jpg) no-repeat center;
   background-size: cover;
 }
 
@@ -34,8 +33,7 @@ body {
   font: 400 19px/21px 'Source Sans Pro';
   color: #030303;
   background-color: $main__color;
-  border: 6px solid rgb(0, 0, 0);
-  box-shadow: 0px 0px 10px #000;
+  border: 2px solid rgb(0, 0, 0);
 }
 
 input,
@@ -95,8 +93,8 @@ h6,
 }
 
 .container {
-  max-width: 1350px;
-  padding: 0 15px;
+  width: 100%;
+  
   margin: 0 auto;
 }
 
@@ -122,6 +120,7 @@ h6,
   grid-template-columns: 0.4fr 1fr 5fr 1fr;
   column-gap: 25px;
   align-items: center;
+  background: linear-gradient(to right, rgba(81, 11, 96, 0.76), rgba(0, 0, 0, 0)),  rgb(192, 7, 177);
 }
 
 .header__logo {
@@ -249,8 +248,9 @@ h6,
   position: relative;
   border-radius: 30px;
   border: 5px solid #000;
-  width: 100%;
+  
   min-height: 500px;
+  margin: 10px 5%;
 }
 
 .board__prev, .board__next {
@@ -330,15 +330,14 @@ h6,
 }
 
 .popular__card {
-  background-color: #fff;
+  position: relative;
+  z-index: 3;
   min-height: 300px;
   font-family: 'Source Sans Pro';
-  border: 3px solid #000;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
   &:hover {
     .popular__fast-check {
@@ -348,6 +347,16 @@ h6,
     box-shadow: 0 0 100px #fff;
     border: none;
   }
+  .popular__img {
+    border: 3px solid #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+  
 }
 .popular__fast-check {
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
@@ -414,7 +423,7 @@ h6,
 .burger__line {
     position: absolute;
     top: 45%;
-    left: 0px;
+    left: 30px;
     width: 30px;
     height: 3.5px;
     background-color: #c2c2c2;
@@ -540,7 +549,7 @@ h6,
     top: 0;
     left: 0;
     padding: 20px 25px;
-    z-index: 3;
+    z-index: 6;
     width: 100%;
     background: linear-gradient(to right,#cb11ab 0,#481173 100%) no-repeat;
   }
