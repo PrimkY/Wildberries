@@ -127,6 +127,8 @@ h6,
 .header__logo {
   color: #eda4ed;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
   &:hover {
     transform: scale(1.1);
@@ -209,6 +211,12 @@ h6,
   right: 15px;
   cursor: pointer;
   font-size: 22px;
+}
+.menu__logo {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  max-width: 15%;
 }
 
 .menu__category {
@@ -542,6 +550,9 @@ h6,
   .header__basket {
     display: none;
   }
+  .header__logo {
+    max-width: 70%;
+  }
   .responsive-basket {
     display: block;
     cursor: pointer;
@@ -556,13 +567,13 @@ h6,
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
   }
   .responsive-basket:active, .fa-magnifying-glass:active {
     color: #ac74d4;
   }
   .board {
-    margin-top: 80px;
+    margin-top: 120px;
   }
   .menu {
     margin-top: 67px;
