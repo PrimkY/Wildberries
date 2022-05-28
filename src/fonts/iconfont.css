@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'iconfont';
+  src:  url('fonts/iconfont.eot?xhjnj6');
+  src:  url('fonts/iconfont.eot?xhjnj6#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?xhjnj6') format('truetype'),
+    url('fonts/iconfont.woff?xhjnj6') format('woff'),
+    url('fonts/iconfont.svg?xhjnj6#iconfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-basket:before {
+  content: "\e900";
+}
+.icon-menu-burger:before {
+  content: "\e901";
+}
