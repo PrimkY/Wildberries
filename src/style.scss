@@ -12,7 +12,9 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
 
 /*Root for change the base color*/
+
 $main__color: #a4a4a4;
+
 
 /*Defolt settings , fonts , size and e.t.c. before work*/
 * {
@@ -34,6 +36,7 @@ body {
   color: #030303;
   background-color: $main__color;
   border: 2px solid rgb(0, 0, 0);
+
 }
 
 input,
@@ -94,7 +97,6 @@ h6,
 
 .container {
   width: 100%;
-  
   margin: 0 auto;
 }
 
@@ -155,6 +157,7 @@ h6,
     color: #686868;
   }
 }
+
 .fa-magnifying-glass {
   position: absolute;
   top: 50%;
@@ -241,14 +244,12 @@ h6,
   margin-top: 10px;
 }
 
-
 //Board
 .board {
   background-color: #3f3f3f;
   position: relative;
   border-radius: 30px;
-  border: 5px solid #000;
-  
+  border: 5px solid #000;  
   min-height: 500px;
   margin: 10px 5%;
 }
@@ -347,6 +348,7 @@ h6,
     box-shadow: 0 0 100px #fff;
     border: none;
   }
+  
   .popular__img {
     border: 3px solid #000;
     position: absolute;
@@ -383,12 +385,14 @@ h6,
   border: 2px solid #000;
   border-radius: 50%;
   cursor: pointer;
+  
   .fa-plus {
     font-size: 20px;
   }
   &:hover {
     background-color: #cccccc;
   }
+
 }
 .popular__price-row {
   display: flex;
