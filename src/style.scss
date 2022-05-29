@@ -12,7 +12,9 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
 
 /*Root for change the base color*/
-$main__color: #786f6f;
+
+$main__color: #a4a4a4;
+
 
 /*Defolt settings , fonts , size and e.t.c. before work*/
 * {
@@ -26,16 +28,15 @@ a {
 
 html {
   padding: 40px 100px;
-  background: url(https://kartinkin.net/uploads/posts/2021-07/1625584167_27-kartinkin-com-p-fon-v-stile-khaimolta-bravl-stars-krasivie-28.jpg) no-repeat center;
   background-size: cover;
 }
 
 body {
-  font: 400 19px/21px 'PT Sans', 'Inter', 'sans-serif';
+  font: 400 19px/21px 'Source Sans Pro';
   color: #030303;
   background-color: $main__color;
-  border: 6px solid rgb(0, 0, 0);
-  box-shadow: 0px 0px 10px #000;
+  border: 2px solid rgb(0, 0, 0);
+
 }
 
 input,
@@ -95,8 +96,7 @@ h6,
 }
 
 .container {
-  max-width: 1350px;
-  padding: 0 15px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -119,28 +119,38 @@ h6,
 .header {
   padding: 50px 0 60px 0;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 0.4fr 1fr 5fr 1fr;
   column-gap: 25px;
   align-items: center;
+  background: linear-gradient(to right, rgba(81, 11, 96, 0.76), rgba(0, 0, 0, 0)),  rgb(192, 7, 177);
 }
 
 .header__logo {
   color: #eda4ed;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
   &:hover {
     transform: scale(1.1);
-    color: #e470e4;
+    color: #f051d4;
   }
 }
 
+.header__input-wrapper {
+  position: relative;
+}
+
 .header__search {
+  width: 100%;
   padding: 20px 25px;
   border: 2px solid #000000;
   outline: none;
   text-align: center;
   font-size: 25px;
+  padding: 16px 120px 16px 44px;
   border-radius: 10px;
+  font-family: 'Source Sans Pro';
   background-color: #ffb0e6;
   font-weight: 400;
   &::placeholder {
@@ -148,23 +158,100 @@ h6,
   }
 }
 
+.fa-magnifying-glass {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.header__basket-link {
+  height: 100%;
+}
+
+.responsive-basket {
+  display: none;
+  font-size: 30px;
+  margin-left: 15px;
+}
+
 .header__basket {
   border-radius: 10px;
+  font-family: 'Source Sans Pro';
   &:hover {
     transform: scale(1.1);
-    background-color: #9e59cf;
+    background-color: #cb11ab;
+    color: #fff;
+    .fa-basket-shopping {
+      transform: scale(1.2);;
+    }
+  }
+  .fa-basket-shopping {
+    margin-left: 10px;
   }
 }
 
+//Aside
+.menu {
+  display: none;
+  position: relative;
+  background-color: #fff;
+  padding: 45px 25px 15px 25px;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100vh;
+}
+
+.menu__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 22px;
+}
+.menu__logo {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  max-width: 15%;
+}
+
+.menu__category {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px 15px;
+  .fa-solid, .fa-brands {
+    font-size: 25px;
+    color: #686868;
+    margin-right: 20px;
+  }
+  &:hover {
+    background-color: #cb11ab;
+    .fa-solid {
+      color: #fff;
+    }
+    color: #fff;
+  }
+}
+
+.menu__item + .menu__item {
+  margin-top: 10px;
+}
 
 //Board
 .board {
   background-color: #3f3f3f;
   position: relative;
   border-radius: 30px;
-  border: 5px solid #000;
-  width: 100%;
+  border: 5px solid #000;  
   min-height: 500px;
+  margin: 10px 5%;
 }
 
 .board__prev, .board__next {
@@ -180,11 +267,11 @@ h6,
   align-items: center;
   padding: 15px;
   font-size: 30px;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid #000000;
   background-color: #ffffff;
   transition: all 0.1s cubic-bezier(0,.99,.51,.53);
   &:hover {
-    background-color: #eda4ed;
+    background-color: #cb11ab;
     color: #fff;
   }
 }
@@ -239,19 +326,19 @@ h6,
 
 .popular__row {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  column-gap: 20px;
+  grid-template-columns: repeat( auto-fit, minmax(175px, 1fr) );
+  gap: 20px;
 }
 
 .popular__card {
-  background-color: #fff;
+  position: relative;
+  z-index: 3;
   min-height: 300px;
-  border: 3px solid #000;
+  font-family: 'Source Sans Pro';
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
   &:hover {
     .popular__fast-check {
@@ -261,9 +348,21 @@ h6,
     box-shadow: 0 0 100px #fff;
     border: none;
   }
+  
+  .popular__img {
+    border: 3px solid #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+  
 }
 .popular__fast-check {
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+  cursor: zoom-in;
   opacity: 0;
   padding: 5px 10px;
   font-size: 15px;
@@ -286,6 +385,14 @@ h6,
   border: 2px solid #000;
   border-radius: 50%;
   cursor: pointer;
+  
+  .fa-plus {
+    font-size: 20px;
+  }
+  &:hover {
+    background-color: #cccccc;
+  }
+
 }
 .popular__price-row {
   display: flex;
@@ -302,21 +409,28 @@ h6,
   text-decoration: line-through;
   font-size: 15px;
 }
-.popular__name {
-}
 
 
-/* .header__burger {
-    position: relative;
+//Burger
+.header__burger {
+  position: relative;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  &:hover {
+    .burger__line, .burger__line::before, .burger__line::after {
+      background-color: #d3d3d3;
+    }
+  }
 }
 
 .burger__line {
     position: absolute;
     top: 45%;
-    left: 15px;
-    width: 15px;
-    height: 1.5px;
-    background-color: #fff;
+    left: 30px;
+    width: 30px;
+    height: 3.5px;
+    background-color: #c2c2c2;
     border-radius: 20px;
 
     &::before ,
@@ -324,18 +438,164 @@ h6,
             content: '';
             position: absolute;
             left: 0px;
-            background-color: #fff;
-            height: 1.5px;
-            width: 15px;
+            background-color: #c2c2c2;
+            height: 3.5px;
+            width: 30px;
             border-radius: 20px;
         }
         &::before {
-            top: 5px;
+            top: 10px;
         }
         &::after {
-            bottom: 5px;
+            bottom: 10px;
         }
-
 }
 
- */
+
+
+//Responsive / Media queries
+@media only screen and (max-width: 1200px) {
+  html {
+    padding: 10px 40px;
+    background: url(https://creativo.one/lessons/les5669/01.jpg) no-repeat center;
+    background-size: cover;
+  }
+  
+  body {
+    font: 400 19px/21px 'Source Sans Pro';
+    color: #030303;
+    background-color: $main__color;
+    border: 6px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 10px #000;
+  }
+  
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  
+  h1,
+  .title1 {
+    font-size: 30px;
+    line-height: 34px;
+    font-weight: 700;
+  }
+  
+  h2,
+  .title2 {
+    font-size: 33px;
+    line-height: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  h3,
+  .title3 {
+    font-size: 20px;
+    line-height: 15px;
+    font-weight: 700;
+  }
+  
+  h4,
+  .title4 {
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 700;
+  }
+  
+  h5,
+  .title5 {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+  }
+  
+  h6,
+  .title6 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 10px;
+  }
+  
+  .container {
+    max-width: 1150px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  
+  .basket__btn {
+    display: inline-block;
+    border: 2px solid #000000;
+    outline: none;
+    font-size: 20px;
+    line-height: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+    height: 100%;
+    background-color: #ac74d4;
+  }
+
+  .fa-basket-shopping {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .header {
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 25px;
+    z-index: 6;
+    width: 100%;
+    background: linear-gradient(to right,#cb11ab 0,#481173 100%) no-repeat;
+  }
+  .header__search {
+    display: none;
+  }
+  .header__basket {
+    display: none;
+  }
+  .header__logo {
+    max-width: 70%;
+  }
+  .responsive-basket {
+    display: block;
+    cursor: pointer;
+  }
+  .fa-magnifying-glass {
+    position: static;
+    transform: translateY(0);
+    margin-left: 10px;
+  }
+  .header__input-wrapper {
+    color: #c2c2c2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+  .responsive-basket:active, .fa-magnifying-glass:active {
+    color: #ac74d4;
+  }
+  .board {
+    margin-top: 120px;
+  }
+  .menu {
+    margin-top: 67px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    padding: 0;
+    background: none;
+  }
+}
