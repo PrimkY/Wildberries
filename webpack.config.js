@@ -24,7 +24,6 @@ module.exports = ({ development }) => ({
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'assets/[hash][ext]',
   },
   module: {
     rules: [
@@ -53,8 +52,42 @@ module.exports = ({ development }) => ({
   },
   plugins: [
     ...esLintPlugin(development),
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'src/index.html',
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      filename: './assets/htmls/basket.html',
+      template: 'src/assets/htmls/basket.html',
+      chunks: ['exampleEntry']
+    }),
+    new HtmlWebpackPlugin({
+      filename: './assets/htmls/accessories.html',
+      template: 'src/assets/htmls/accessories.html',
+      chunks: ['exampleEntry']
+    }),
+    new HtmlWebpackPlugin({
+      filename: './assets/htmls/books.html',
+      template: 'src/assets/htmls/books.html',
+      chunks: ['exampleEntry']
+    }),
+    new HtmlWebpackPlugin({
+      filename: './assets/htmls/sport.html',
+      template: 'src/assets/htmls/sport.html',
+      chunks: ['exampleEntry']
+    }),
+    new HtmlWebpackPlugin({
+      filename: './assets/htmls/toys.html',
+      template: 'src/assets/htmls/toys.html',
+      chunks: ['exampleEntry']
+    }),
+    new HtmlWebpackPlugin({
+      filename: './assets/htmls/shoes.html',
+      template: 'src/assets/htmls/shoes.html',
+      chunks: ['exampleEntry']
+    }),
     new CopyPlugin({
       patterns: [{
         from: 'public',
