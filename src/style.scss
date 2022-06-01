@@ -363,17 +363,16 @@ h6,
 
 .plus--hidden, .minus--hidden {
   cursor: pointer;
-  background-color: #fff;
-  border-radius: 50%;
+  background-color: #ffffff;
   padding: 5px;
   font-size: 20px;
   color: #000;
 }
 .plus--hidden {
-  margin-right: 5px;
+  margin-left: 7px;
 }
 .minus--hidden {
-  margin-left: 5px;
+  margin-right: 7px;
 }
 
 .popular__fast-check {
@@ -393,6 +392,8 @@ h6,
   font-size: 15px;
 }
 .popular__hidden-block {
+  background: linear-gradient(to right, rgba(81, 11, 96, 0.76), rgba(0, 0, 0, 0)), rgb(192, 7, 177);
+  padding: 5px 10px;
   display: none;
   position: absolute;
   bottom: 15px;

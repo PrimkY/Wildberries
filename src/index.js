@@ -50,9 +50,9 @@ const addItem = (category, name, discount, price, count, url, id) => {
   const addBtnPlus = document.createElement('i');
   const nameItem = document.createElement('div');
   const hiddenBlock = document.createElement('div');
-  const addPlus = document.createElement('i');
-  const counter = document.createElement('span');
   const addMinus = document.createElement('i');
+  const counter = document.createElement('span');
+  const addPlus = document.createElement('i');
 
  /*  url.src = url; */
   const fastCheckTxtNode = document.createTextNode('Быстрый просмотр');
@@ -75,8 +75,8 @@ const addItem = (category, name, discount, price, count, url, id) => {
   priceRow.className = 'popular__price-row';
   priceNow.className = 'popular__price-now';
   nameItem.className = 'popular__name';
-  addPlus.className = 'fa-solid fa-plus plus--hidden';
   addMinus.className = 'fa-solid fa-minus minus--hidden'
+  addPlus.className = 'fa-solid fa-plus plus--hidden';
   hiddenBlock.className = 'popular__hidden-block';
 
   liItem.append(card);
@@ -90,15 +90,30 @@ const addItem = (category, name, discount, price, count, url, id) => {
   row.append(liItem);
   liItem.append(nameItem);
   card.append(hiddenBlock);
-  hiddenBlock.append(addPlus);
-  hiddenBlock.append(counter);
   hiddenBlock.append(addMinus);
+  hiddenBlock.append(counter);
+  hiddenBlock.append(addPlus);
+
+  let num = 0;
+  counter.innerText = num;
 
   addBtn.addEventListener('click', () => {
     addBtn.style.display = 'none';
     hiddenBlock.style.display = 'flex';
-    let num = 0;
-    counter.innerText = num;
+  })
+
+  hiddenBlock.addEventListener('click', (event) => {
+    if(event.target === addPlus) {
+      num++;
+      counter.innerText = num;
+    } else if(event.target === addMinus) {
+      num--;
+      counter.innerText = num;
+    }
+    if(num < 0) {
+      num = 0;
+      counter.innerText = num;
+    }
   })
 };
   for (let i = 0; i < 6; i++) {
