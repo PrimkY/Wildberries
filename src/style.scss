@@ -13,7 +13,7 @@
 
 /*Root for change the base color*/
 
-$main__color: #a4a4a4;
+$main__color: #fcf3f3;
 
 
 /*Defolt settings , fonts , size and e.t.c. before work*/
@@ -28,7 +28,7 @@ a {
 
 html {
   padding: 40px 100px;
-  background-size: cover;
+  background-color: #a4a4a4;
 }
 
 body {
@@ -360,6 +360,22 @@ h6,
   }
   
 }
+
+.plus--hidden, .minus--hidden {
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 20px;
+  color: #000;
+}
+.plus--hidden {
+  margin-right: 5px;
+}
+.minus--hidden {
+  margin-left: 5px;
+}
+
 .popular__fast-check {
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
   cursor: zoom-in;
@@ -375,6 +391,13 @@ h6,
   bottom: 10px;
   left: 10px;
   font-size: 15px;
+}
+.popular__hidden-block {
+  display: none;
+  position: absolute;
+  bottom: 15px;
+  right: 5px;
+  align-items: center;
 }
 .popular__add {
   position: absolute;
@@ -413,6 +436,7 @@ h6,
 
 //Burger
 .header__burger {
+  margin-left: 30px;
   position: relative;
   cursor: pointer;
   width: 35px;
@@ -427,7 +451,7 @@ h6,
 .burger__line {
     position: absolute;
     top: 45%;
-    left: 30px;
+    left: 0px;
     width: 30px;
     height: 3.5px;
     background-color: #c2c2c2;
