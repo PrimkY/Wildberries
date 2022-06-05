@@ -1,15 +1,15 @@
-    /*Reset*/
-  a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text]
+/*Reset*/
+a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text]
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
 
 /*Root for change the base color*/
 
-  ﻿
-    /*Reset*/
-  a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text]
+﻿
+  /*Reset*/
+a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text]
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
 
 /*Root for change the base color*/
 
@@ -17,7 +17,6 @@ $main__color: #ffffff;
 $header__color: rgb(192, 7, 177);
 $hover__color: #f051d4;
 $violet__text__color: rgb(126, 6, 117);
-
 
 /*Defolt settings , fonts , size and e.t.c. before work*/
 * {
@@ -200,7 +199,7 @@ h6,
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 2;
   height: 100vh;
 }
 
@@ -351,26 +350,10 @@ h6,
     left: 0;
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
     border-radius: 15px;
   }
 
 }
-
-.plus--hidden, .minus--hidden {
-  cursor: pointer;
-  background-color: #ffffff;
-  padding: 5px;
-  font-size: 20px;
-  color: #000;
-}
-.plus--hidden {
-  margin-left: 7px;
-}
-.minus--hidden {
-  margin-right: 7px;
-}
-
 .popular__fast-check {
   transition: all 0.3s cubic-bezier(0,.99,.51,.53);
   cursor: zoom-in;
@@ -389,15 +372,6 @@ h6,
   left: 10px;
   font-size: 18px;
   color: $violet__text__color;
-}
-.popular__hidden-block {
-  background: linear-gradient(to right, rgba(81, 11, 96, 0.76), rgba(0, 0, 0, 0)), rgb(192, 7, 177);
-  padding: 5px 10px;
-  display: none;
-  position: absolute;
-  bottom: 15px;
-  right: 5px;
-  align-items: center;
 }
 .popular__add {
   position: absolute;
@@ -436,7 +410,6 @@ h6,
 
 //Burger
 .header__burger {
-  margin-left: 30px;
   position: relative;
   cursor: pointer;
   width: 25px;
@@ -450,29 +423,29 @@ h6,
 }
 
 .burger__line {
+  position: absolute;
+  top: 45%;
+  left: 30px;
+  width: 30px;
+  height: 3.5px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  &::before ,
+  &::after {
+    content: '';
     position: absolute;
-    top: 45%;
     left: 0px;
-    width: 30px;
-    height: 3.5px;
-    border-radius: 20px;
     background-color: #ffffff;
-    &::before ,
-        &::after {
-            content: '';
-            position: absolute;
-            left: 0px;
-            background-color: #ffffff;
-            height: 3.5px;
-            width: 30px;
-            border-radius: 20px;
-        }
-        &::before {
-            top: 10px;
-        }
-        &::after {
-            bottom: 10px;
-        }
+    height: 3.5px;
+    width: 30px;
+    border-radius: 20px;
+  }
+  &::before {
+    top: 10px;
+  }
+  &::after {
+    bottom: 10px;
+  }
 }
 
 
