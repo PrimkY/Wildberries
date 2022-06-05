@@ -15,3 +15,105 @@ close.addEventListener('click', () => {
   body.style.overflowY = 'auto';
 });
 slider();
+
+//My task
+import  database  from "./assets/scripts/database";
+
+const row = document.querySelector('.popular__row');
+
+let databaseJson = JSON.stringify(database);
+let newDatabase = JSON.parse(databaseJson);
+
+
+const GenerateItem = function (category,name,discount,price,count,image,id) {
+  this.category = category;
+  this.name = name;
+  this.discount = discount;
+  this.price = price;
+  this.count = count;
+  this.image = image;
+  this.id = id;
+};
+
+const addItem = (category, name, discount, price, count, url, src, id) => {
+  const liItem = document.createElement('li');
+  const card = document.createElement('div');
+  const img = document.createElement('img');
+  const fastCheck = document.createElement('a');
+  const discountPop = document.createElement('span');
+  const addBtn = document.createElement('button');
+  const priceRow = document.createElement('div');
+  const priceNow = document.createElement('p');
+  const addBtnPlus = document.createElement('i');
+  const nameItem = document.createElement('div');
+  const hiddenBlock = document.createElement('div');
+  const addMinus = document.createElement('i');
+  const counter = document.createElement('span');
+  const addPlus = document.createElement('i');
+
+  const fastCheckTxtNode = document.createTextNode('Быстрый просмотр');
+  const discountPopTxtNode = document.createTextNode(discount + '%');
+  const priceNowTxt = document.createTextNode(price + ' ₽');
+  const nameItemTxtNode = document.createTextNode(category);
+
+  fastCheck.append(fastCheckTxtNode);
+  discountPop.append(discountPopTxtNode);
+  priceNow.append(priceNowTxt);
+  nameItem.append(nameItemTxtNode);
+
+  img.src = url;
+
+  liItem.className = 'popular__item';
+  card.className = 'popular__card';
+  img.className = 'popular__img';
+  fastCheck.className = 'popular__fast-check';
+  discountPop.className = 'popular__discount';
+  addBtn.className = 'popular__add';
+  addBtnPlus.className = 'fa-solid fa-plus';
+  priceRow.className = 'popular__price-row';
+  priceNow.className = 'popular__price-now';
+  nameItem.className = 'popular__name';
+  addMinus.className = 'fa-solid fa-minus minus--hidden'
+  addPlus.className = 'fa-solid fa-plus plus--hidden';
+  hiddenBlock.className = 'popular__hidden-block';
+
+  liItem.append(card);
+  card.append(img);
+  card.append(fastCheck);
+  card.append(discountPop);
+  addBtn.append(addBtnPlus);
+  card.append(addBtn);
+  liItem.append(priceRow);
+  priceRow.append(priceNow);
+  row.append(liItem);
+  liItem.append(nameItem);
+  card.append(hiddenBlock);
+  hiddenBlock.append(addMinus);
+  hiddenBlock.append(counter);
+  hiddenBlock.append(addPlus);
+
+  let num = 0;
+  counter.innerText = num;
+
+  addBtn.addEventListener('click', () => {
+    addBtn.style.display = 'none';
+    hiddenBlock.style.display = 'flex';
+  })
+
+  hiddenBlock.addEventListener('click', (event) => {
+    if(event.target === addPlus) {
+      num++;
+      counter.innerText = num;
+    } else if(event.target === addMinus) {
+      num--;
+      counter.innerText = num;
+    }
+    if(num < 0) {
+      num = 0;
+      counter.innerText = num;
+    }
+  })
+};
+  for (let i = 0; i < 6; i++) {
+    addItem(newDatabase[Math.floor(Math.random() * newDatabase.length)].category, newDatabase[Math.floor(Math.random() * newDatabase.length)].name, newDatabase[Math.floor(Math.random() * newDatabase.length)].discount, newDatabase[Math.floor(Math.random() * newDatabase.length)].price, newDatabase[Math.floor(Math.random() * newDatabase.length)].count, newDatabase[Math.floor(Math.random() * newDatabase.length)].image, newDatabase[Math.floor(Math.random() * newDatabase.length)].id);
+  }
