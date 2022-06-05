@@ -1,4 +1,5 @@
 import './style.scss';
+import { slider } from './assets/scripts/slider';
 
 const aside = document.querySelector('.menu');
 const close = document.querySelector('.menu__close');
