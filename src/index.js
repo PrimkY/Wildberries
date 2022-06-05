@@ -20,15 +20,12 @@ slider();
 import  database  from "./assets/scripts/database";
 
 const row = document.querySelector('.popular__row');
-const allItems = [];
 
 let databaseJson = JSON.stringify(database);
 let newDatabase = JSON.parse(databaseJson);
 
-let randomItem = newDatabase[Math.floor(Math.random() * newDatabase.length)];
 
-
-export const GenerateItem = function (category,name,discount,price,count,image,id) {
+const GenerateItem = function (category,name,discount,price,count,image,id) {
   this.category = category;
   this.name = name;
   this.discount = discount;
@@ -38,7 +35,7 @@ export const GenerateItem = function (category,name,discount,price,count,image,i
   this.id = id;
 };
 
-const addItem = (category, name, discount, price, count, url, id) => {
+const addItem = (category, name, discount, price, count, url, src, id) => {
   const liItem = document.createElement('li');
   const card = document.createElement('div');
   const img = document.createElement('img');
@@ -54,7 +51,6 @@ const addItem = (category, name, discount, price, count, url, id) => {
   const counter = document.createElement('span');
   const addPlus = document.createElement('i');
 
- /*  url.src = url; */
   const fastCheckTxtNode = document.createTextNode('Быстрый просмотр');
   const discountPopTxtNode = document.createTextNode(discount + '%');
   const priceNowTxt = document.createTextNode(price + ' ₽');
@@ -64,6 +60,8 @@ const addItem = (category, name, discount, price, count, url, id) => {
   discountPop.append(discountPopTxtNode);
   priceNow.append(priceNowTxt);
   nameItem.append(nameItemTxtNode);
+
+  img.src = url;
 
   liItem.className = 'popular__item';
   card.className = 'popular__card';
