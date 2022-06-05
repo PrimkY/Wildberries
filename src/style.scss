@@ -309,104 +309,125 @@ h6,
 }
 
 //Popular
-.popular {
-  margin-top: 30px;
-  padding: 20px 40px;
-}
-
-.popular__title {
-  margin-left: 50px;
-}
-
-.popular__row {
-  display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(175px, 1fr) );
-  gap: 20px;
-}
-
-.popular__card {
-  position: relative;
-  z-index: 3;
-  min-height: 300px;
-  font-family: 'Source Sans Pro';
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s cubic-bezier(0,.99,.51,.53);
-  &:hover {
-    .popular__fast-check {
-      opacity: 1;
+    .popular {
+      margin-top: 30px;
+      padding: 20px 40px;
     }
-    transform: scale(1.1);
-    box-shadow: 0 0 100px #fff;
-    border: none;
-  }
 
-  .popular__img {
-    border: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-  }
+    .popular__title {
+      margin-left: 50px;
+    }
 
-}
-.popular__fast-check {
-  transition: all 0.3s cubic-bezier(0,.99,.51,.53);
-  cursor: zoom-in;
-  opacity: 0;
-  padding: 5px 10px;
-  font-size: 15px;
-  font-weight: 800;
-  border-radius: 5px;
-  background-color: $main__color;
-  color: $violet__text__color;
-  z-index: 2;
-}
-.popular__discount {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 18px;
-  color: $violet__text__color;
-}
-.popular__add {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: #ffffff;
-  color: $violet__text__color;
-  .fa-plus {
-    font-size: 20px;
-  }
-  &:hover {
-    background-color: $hover__color;
-    color: #ffffff;
-  }
-}
-.popular__price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px 0 5px 0;
-}
+    .popular__row {
+      display: grid;
+      grid-template-columns: repeat( auto-fit, minmax(175px, 1fr) );
+      gap: 20px;
+    }
 
-.popular__price-now {
-  font-weight: bold;
-  font-size: 17px;
-}
-.popular__price-was {
-  text-decoration: line-through;
-  font-size: 15px;
-}
+    .popular__card {
+      position: relative;
+      z-index: 3;
+      min-height: 300px;
+      font-family: 'Source Sans Pro';
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+      &:hover {
+        .popular__fast-check {
+          opacity: 1;
+        }
+        transform: scale(1.1);
+        box-shadow: 0 0 100px #fff;
+        border: none;
+      }
+
+      .popular__img {
+        border: 3px solid #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+      }
+
+    }
+
+    .plus--hidden, .minus--hidden {
+      cursor: pointer;
+      background-color: #ffffff;
+      padding: 5px;
+      font-size: 20px;
+      color: #000;
+    }
+    .plus--hidden {
+      margin-left: 7px;
+    }
+    .minus--hidden {
+      margin-right: 7px;
+    }
+
+    .popular__fast-check {
+      transition: all 0.3s cubic-bezier(0,.99,.51,.53);
+      cursor: zoom-in;
+      opacity: 0;
+      padding: 5px 10px;
+      font-size: 15px;
+      border-radius: 5px;
+      background-color: #c2c2c2;
+      z-index: 2;
+    }
+    .popular__discount {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 15px;
+    }
+    .popular__hidden-block {
+      background: linear-gradient(to right, rgba(81, 11, 96, 0.76), rgba(0, 0, 0, 0)), rgb(192, 7, 177);
+      padding: 5px 10px;
+      display: none;
+      position: absolute;
+      bottom: 15px;
+      right: 5px;
+      align-items: center;
+    }
+    .popular__add {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      border: 2px solid #000;
+      border-radius: 50%;
+      cursor: pointer;
+
+      .fa-plus {
+        font-size: 20px;
+      }
+      &:hover {
+        background-color: #cccccc;
+      }
+
+    }
+    .popular__price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0 5px 0;
+    }
+
+    .popular__price-now {
+      font-weight: bold;
+      font-size: 17px;
+    }
+    .popular__price-was {
+      text-decoration: line-through;
+      font-size: 15px;
+    }
+
 
 //Burger
 .header__burger {
