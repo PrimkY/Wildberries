@@ -1,5 +1,6 @@
 import './style.scss';
 import { slider } from './assets/scripts/slider';
+import { imgUploadJsonplaceholder } from './assets/scripts/img';
 
 const aside = document.querySelector('.menu');
 const close = document.querySelector('.menu__close');
@@ -15,3 +16,4 @@ close.addEventListener('click', () => {
   body.style.overflowY = 'auto';
 });
 slider();
+imgUploadJsonplaceholder();
