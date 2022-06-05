@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve --env development",
-    "lint": "eslint src"
+    "dev": "webpack serve --env development"
   },
   "author": "Kris Casper",
   "devDependencies": {
