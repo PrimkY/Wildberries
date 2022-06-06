@@ -127,16 +127,25 @@ const addItem = (category, name, discount, price, count, url, id) => {
     }
     localStorage.setItem('items', JSON.stringify(allItems));
 
-    card.addEventListener('click', (event) => {
+    addPlus.addEventListener('click', (event) => {
       const currentElem = event.target.closest('.popular__card'); //!
       const selectedTodo = allItems.find(
-				(item) => +item.id === +currentElem.dataset.id
-			);
+      (item) => +item.id === +currentElem.dataset.id
+      );
       selectedTodo.count++;
+      console.log(selectedTodo.count);
+    })
+    addMinus.addEventListener('click', (event) => {
+      const currentElem = event.target.closest('.popular__card'); //!
+      const selectedTodo = allItems.find(
+      (item) => +item.id === +currentElem.dataset.id
+      );
+      selectedTodo.count--;
       console.log(selectedTodo.count);
     })
   }
   getCard();
+
 };
 
 for (let i = 0; i < 6; i++) {
