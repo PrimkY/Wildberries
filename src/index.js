@@ -18,11 +18,10 @@ close.addEventListener('click', () => {
 import  database  from "./assets/scripts/database";
 
 const row = document.querySelector('.popular__row');
-const allItems = [];
-
 
 let databaseJson = JSON.stringify(database);
 let newDatabase = JSON.parse(databaseJson);
+
 
 let randomItem = newDatabase[Math.floor(Math.random() * newDatabase.length)];
 
@@ -54,6 +53,8 @@ const addItem = (category, name, discount, price, count, url, id) => {
   const addPlus = document.createElement('i');
 
   img.src = url;
+  card.dataset.id = id;
+
   const fastCheckTxtNode = document.createTextNode('Быстрый просмотр');
   const discountPopTxtNode = document.createTextNode(discount + '%');
   const priceNowTxt = document.createTextNode(price + ' ₽');
@@ -99,6 +100,7 @@ const addItem = (category, name, discount, price, count, url, id) => {
   addBtn.addEventListener('click', () => {
     addBtn.style.display = 'none';
     hiddenBlock.style.display = 'flex';
+    console.log(event.target.closest('.popular__card').dataset.id); //!
   })
 
   hiddenBlock.addEventListener('click', (event) => {
@@ -114,6 +116,27 @@ const addItem = (category, name, discount, price, count, url, id) => {
       counter.innerText = num;
     }
   })
+  
+  const getCard = async() => {
+    const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
+    const cards = await response.json();
+    const allItems = [];
+
+    for (const iterator of cards) {
+      allItems.push(iterator);
+    }
+    localStorage.setItem('items', JSON.stringify(allItems));
+
+    card.addEventListener('click', (event) => {
+      const currentElem = event.target.closest('.popular__card'); //!
+      const selectedTodo = allItems.find(
+				(item) => +item.id === +currentElem.dataset.id
+			);
+      selectedTodo.count++;
+      console.log(selectedTodo.count);
+    })
+  }
+  getCard();
 };
 
 for (let i = 0; i < 6; i++) {
@@ -127,8 +150,8 @@ const imgUploadJsonplaceholder = async () => {
     const num = Math.round(Math.random() * 100);
     const response = await fetch(`http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/${num}/`);
     const card = await response.json();
-    console.log(card);
     const imgUrl = await card.image_url;
+    console.log(card.id);
     imgArr[i].src = imgUrl;
   }
 };
