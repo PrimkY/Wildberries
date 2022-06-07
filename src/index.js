@@ -130,13 +130,16 @@ const addStorageItems = async() => {
     })
 
     addMinus.addEventListener('click', (event) => {
-      const currentElem = event.target.closest('.popular__card'); //!
-      const selectedTodo = allItems.find(
+      const getCards = JSON.parse(localStorage.getItem('items'));
+      const currentElem = event.target.closest('.popular__card');
+      const selectedTodo = getCards.find(
       (item) => +item.id === +currentElem.dataset.id
       );
       selectedTodo.count--;
-      localStorage.setItem('items', JSON.stringify(allItems));
+      num--;
+      counter.innerText = num;
       console.log(selectedTodo.count);
+      localStorage.setItem('items', JSON.stringify(getCards));
     });
   };
   const getCard = () => {
