@@ -48,13 +48,14 @@ const addStorageItems = async() => {
   const counter = document.createElement('span');
   const addPlus = document.createElement('i');
 
-  img.src = url;
   card.dataset.id = id;
+  const getImage = JSON.parse(localStorage.getItem('items'));
+  img.src = getImage[id-1].image_url;
 
   const fastCheckTxtNode = document.createTextNode('Быстрый просмотр');
   const discountPopTxtNode = document.createTextNode(discount + '%');
   const priceNowTxt = document.createTextNode(price + ' BYN');
-  const nameItemTxtNode = document.createTextNode(category +'');
+  const nameItemTxtNode = document.createTextNode(title +'');
 
   fastCheck.append(fastCheckTxtNode);
   discountPop.append(discountPopTxtNode);
@@ -111,6 +112,7 @@ const addStorageItems = async() => {
       const selectedTodo = getCards.find(
       (item) => +item.id === +currentElem.dataset.id
       );
+      console.log(selectedTodo)
       selectedTodo.count++;
       localStorage.setItem('items', JSON.stringify(getCards));
     })
@@ -137,30 +139,16 @@ const addStorageItems = async() => {
     });
   };
   const getCard = () => {
-    const allItems = localStorage.getItem('items');
+    const allItems = JSON.parse(localStorage.getItem('items'));
 
     for (let i = 0; i < 6; i++) {
-      const randCard = JSON.parse(localStorage.getItem('items'))[Math.ceil(Math.random()*100) + 1];
+      const randCard = allItems[Math.ceil(Math.random()*100)];
       console.log(randCard);
       addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
-    };
+    }
 };
   return getCard();
 };
 
 addStorageItems();
 
-// const imgUploadJsonplaceholder = async () => {
-//   const imgArr = document.getElementsByClassName('popular__img');
-//
-//   for (let i = 0; i < imgArr.length; i++) {
-//     const num = Math.round(Math.random() * 100);
-//     const response = await fetch(`http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/${num}/`);
-//     const card = await response.json();
-//     const imgUrl = await card.image_url;
-//     console.log(card.id);
-//     imgArr[i].src = imgUrl;
-//   }
-// };
-//
-// imgUploadJsonplaceholder();
