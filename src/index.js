@@ -15,17 +15,17 @@ close.addEventListener('click', () => {
   body.style.overflowY = 'auto';
 });
 
-let locate = document.location.href;
-const splitElem = locate.split('/');  
-const lastElem = splitElem[splitElem.length-1];
-console.log(lastElem);
-if(lastElem === 'books.html') {
-}
-
 const row = document.querySelector('.popular__row');
 
-
-export const GenerateItem = function (category,name,discount,price,count,image,id) {
+export const GenerateItem = function (
+  category,
+  name,
+  discount,
+  price,
+  count,
+  image,
+  id
+) {
   this.category = category;
   this.name = name;
   this.discount = discount;
@@ -37,18 +37,27 @@ export const GenerateItem = function (category,name,discount,price,count,image,i
 
 let newDatabase = [];
 
-const addStorageItems = async() => {
-  const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
+const addStorageItems = async () => {
+  const response = await fetch(
+    'http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/'
+  );
   const cards = await response.json();
   const allItems = [...cards];
   localStorage.setItem('items', JSON.stringify(allItems));
   newDatabase = [...cards];
-}
+};
 addStorageItems();
-console.log(newDatabase);
 
+//Locate logic
+let locate = document.location.href;
+const splitElem = locate.split('/');
+const lastElem = splitElem[splitElem.length - 1];
+console.log(lastElem);
+if (lastElem === 'books.html') {
+  console.log(newDatabase);
+}
 
-  const addItem = (category, name, discount, price, count, url, id) => {
+const addItem = (category, name, discount, price, count, url, id) => {
   const liItem = document.createElement('li');
   const card = document.createElement('div');
   const img = document.createElement('img');
@@ -87,7 +96,7 @@ console.log(newDatabase);
   priceRow.className = 'popular__price-row';
   priceNow.className = 'popular__price-now';
   nameItem.className = 'popular__name';
-  addMinus.className = 'fa-solid fa-minus minus--hidden'
+  addMinus.className = 'fa-solid fa-minus minus--hidden';
   addPlus.className = 'fa-solid fa-plus plus--hidden';
   hiddenBlock.className = 'popular__hidden-block';
 
@@ -113,77 +122,87 @@ console.log(newDatabase);
     addBtn.style.display = 'none';
     hiddenBlock.style.display = 'flex';
     console.log(event.target.closest('.popular__card').dataset.id); //!
-  })
+  });
 
   hiddenBlock.addEventListener('click', (event) => {
-    if(event.target === addPlus) {
+    if (event.target === addPlus) {
       num++;
       counter.innerText = num;
-    } else if(event.target === addMinus) {
+    } else if (event.target === addMinus) {
       num--;
       counter.innerText = num;
     }
-    if(num < 0) {
+    if (num < 0) {
       num = 0;
       counter.innerText = num;
     }
-  })
-  
+  });
 
-
-  const getCard = async() => {
-    const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
+  const getCard = async () => {
+    const response = await fetch(
+      'http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/'
+    );
     const cards = await response.json();
     const allItems = [...cards];
-    
+
     addBtn.addEventListener('click', (event) => {
       const getCards = JSON.parse(localStorage.getItem('items'));
       const currentElem = event.target.closest('.popular__card'); //!
       console.log(getCards);
       const selectedTodo = getCards.find(
-      (item) => +item.id === +currentElem.dataset.id
+        (item) => +item.id === +currentElem.dataset.id
       );
       selectedTodo.count++;
       console.log(selectedTodo.count);
       localStorage.setItem('items', JSON.stringify(getCards));
-    })
+    });
 
     addPlus.addEventListener('click', (event) => {
       const getCards = JSON.parse(localStorage.getItem('items'));
       const currentElem = event.target.closest('.popular__card'); //!
       console.log(getCards);
       const selectedTodo = getCards.find(
-      (item) => +item.id === +currentElem.dataset.id
+        (item) => +item.id === +currentElem.dataset.id
       );
       selectedTodo.count++;
       console.log(selectedTodo.count);
       localStorage.setItem('items', JSON.stringify(getCards));
-    })
+    });
 
     addMinus.addEventListener('click', (event) => {
       const currentElem = event.target.closest('.popular__card'); //!
       const selectedTodo = allItems.find(
-      (item) => +item.id === +currentElem.dataset.id
+        (item) => +item.id === +currentElem.dataset.id
       );
       selectedTodo.count--;
       localStorage.setItem('items', JSON.stringify(allItems));
       console.log(selectedTodo.count);
-    })
-  }
+    });
+  };
   getCard();
 };
 
 for (let i = 0; i < 6; i++) {
   const randCard = newDatabase[Math.floor(Math.random() * newDatabase.length)];
-  addItem(randCard.category, randCard.name, randCard.discount, randCard.price, randCard.count, randCard.image, randCard.id);
-};
+  addItem(
+    randCard.category,
+    randCard.name,
+    randCard.discount,
+    randCard.price,
+    randCard.count,
+    randCard.image,
+    randCard.id
+  );
+}
 
 const imgUploadJsonplaceholder = async () => {
   const imgArr = document.getElementsByClassName('popular__img');
 
   for (let i = 0; i < imgArr.length; i++) {
     const num = Math.round(Math.random() * 100);
-    const response = await fetch(`http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/${num}/`);
+    const response = await fetch(
+      `http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/${num}/`
+    );
     const card = await response.json();
     const imgUrl = await card.image_url;
     console.log(card.id);
