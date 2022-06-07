@@ -94,7 +94,7 @@ const addStorageItems = async() => {
   let num = 1;
   counter.innerText = num;
 
-  addBtn.addEventListener('click', (event) => {
+  addBtn.addEventListener('click', () => {
     addBtn.style.display = 'none';
     hiddenBlock.style.display = 'flex';
   })
