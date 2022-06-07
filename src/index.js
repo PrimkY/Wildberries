@@ -15,15 +15,14 @@ close.addEventListener('click', () => {
   body.style.overflowY = 'auto';
 });
 
-import  database  from "./assets/scripts/database";
+let locate = document.location.href;
+const splitElem = locate.split('/');  
+const lastElem = splitElem[splitElem.length-1];
+console.log(lastElem);
+if(lastElem === 'books.html') {
+}
 
 const row = document.querySelector('.popular__row');
-
-let databaseJson = JSON.stringify(database);
-let newDatabase = JSON.parse(databaseJson);
-
-
-let randomItem = newDatabase[Math.floor(Math.random() * newDatabase.length)];
 
 
 export const GenerateItem = function (category,name,discount,price,count,image,id) {
@@ -36,7 +35,20 @@ export const GenerateItem = function (category,name,discount,price,count,image,i
   this.id = id;
 };
 
-const addItem = (category, name, discount, price, count, url, id) => {
+let newDatabase = [];
+
+const addStorageItems = async() => {
+  const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
+  const cards = await response.json();
+  const allItems = [...cards];
+  localStorage.setItem('items', JSON.stringify(allItems));
+  newDatabase = [...cards];
+}
+addStorageItems();
+console.log(newDatabase);
+
+
+  const addItem = (category, name, discount, price, count, url, id) => {
   const liItem = document.createElement('li');
   const card = document.createElement('div');
   const img = document.createElement('img');
@@ -117,39 +129,53 @@ const addItem = (category, name, discount, price, count, url, id) => {
     }
   })
   
+
+
   const getCard = async() => {
     const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
     const cards = await response.json();
-    const allItems = [];
-
-    for (const iterator of cards) {
-      allItems.push(iterator);
-    }
-    localStorage.setItem('items', JSON.stringify(allItems));
-
-    addPlus.addEventListener('click', (event) => {
+    const allItems = [...cards];
+    
+    addBtn.addEventListener('click', (event) => {
+      const getCards = JSON.parse(localStorage.getItem('items'));
       const currentElem = event.target.closest('.popular__card'); //!
-      const selectedTodo = allItems.find(
+      console.log(getCards);
+      const selectedTodo = getCards.find(
       (item) => +item.id === +currentElem.dataset.id
       );
       selectedTodo.count++;
       console.log(selectedTodo.count);
+      localStorage.setItem('items', JSON.stringify(getCards));
     })
+
+    addPlus.addEventListener('click', (event) => {
+      const getCards = JSON.parse(localStorage.getItem('items'));
+      const currentElem = event.target.closest('.popular__card'); //!
+      console.log(getCards);
+      const selectedTodo = getCards.find(
+      (item) => +item.id === +currentElem.dataset.id
+      );
+      selectedTodo.count++;
+      console.log(selectedTodo.count);
+      localStorage.setItem('items', JSON.stringify(getCards));
+    })
+
     addMinus.addEventListener('click', (event) => {
       const currentElem = event.target.closest('.popular__card'); //!
       const selectedTodo = allItems.find(
       (item) => +item.id === +currentElem.dataset.id
       );
       selectedTodo.count--;
+      localStorage.setItem('items', JSON.stringify(allItems));
       console.log(selectedTodo.count);
     })
   }
   getCard();
-
 };
 
 for (let i = 0; i < 6; i++) {
-  addItem(newDatabase[Math.floor(Math.random() * newDatabase.length)].category, newDatabase[Math.floor(Math.random() * newDatabase.length)].name, newDatabase[Math.floor(Math.random() * newDatabase.length)].discount, newDatabase[Math.floor(Math.random() * newDatabase.length)].price, newDatabase[Math.floor(Math.random() * newDatabase.length)].count, newDatabase[Math.floor(Math.random() * newDatabase.length)].image, newDatabase[Math.floor(Math.random() * newDatabase.length)].id);
+  const randCard = newDatabase[Math.floor(Math.random() * newDatabase.length)];
+  addItem(randCard.category, randCard.name, randCard.discount, randCard.price, randCard.count, randCard.image, randCard.id);
 };
 
 const imgUploadJsonplaceholder = async () => {
@@ -166,3 +192,5 @@ const imgUploadJsonplaceholder = async () => {
 };
 
 imgUploadJsonplaceholder();
+
+console.log(newDatabase);
