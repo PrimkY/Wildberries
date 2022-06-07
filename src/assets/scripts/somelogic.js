@@ -1,7 +1,9 @@
-let locate = document.location.href;
-locate.split('/');
-locate.slice(-1);
-if(document.location.href === 'http://localhost:8080/assets/htmls/books.html') {
+import { addItem } from '../../index';
 
+let locate = document.location.href;
+const splitElem = locate.split('/');
+const lastElem = splitElem[splitElem.length-1];
+console.log(lastElem);
+if(lastElem === 'books.html') {
+    
 }
-console.log(document.location.href);
