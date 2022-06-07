@@ -1,5 +1,4 @@
 import './style.scss';
-import { slider } from './assets/scripts/slider';
 
 const aside = document.querySelector('.menu');
 const close = document.querySelector('.menu__close');
@@ -15,17 +14,7 @@ close.addEventListener('click', () => {
   body.style.overflowY = 'auto';
 });
 
-import  database  from "./assets/scripts/database";
-
 const row = document.querySelector('.popular__row');
-const allItems = [];
-
-
-let databaseJson = JSON.stringify(database);
-let newDatabase = JSON.parse(databaseJson);
-
-let randomItem = newDatabase[Math.floor(Math.random() * newDatabase.length)];
-
 
 export const GenerateItem = function (category,name,discount,price,count,image,id) {
   this.category = category;
@@ -37,7 +26,13 @@ export const GenerateItem = function (category,name,discount,price,count,image,i
   this.id = id;
 };
 
-const addItem = (category, name, discount, price, count, url, id) => {
+const addStorageItems = async() => {
+  const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
+  const cards = await response.json();
+  localStorage.setItem('items', JSON.stringify(cards));
+
+
+  const addItem = (category, title, discount, price, count, url, id) => {
   const liItem = document.createElement('li');
   const card = document.createElement('div');
   const img = document.createElement('img');
@@ -53,11 +48,14 @@ const addItem = (category, name, discount, price, count, url, id) => {
   const counter = document.createElement('span');
   const addPlus = document.createElement('i');
 
-  img.src = url;
+  card.dataset.id = id;
+  const getImage = JSON.parse(localStorage.getItem('items'));
+  img.src = getImage[id-1].image_url;
+
   const fastCheckTxtNode = document.createTextNode('Быстрый просмотр');
   const discountPopTxtNode = document.createTextNode(discount + '%');
-  const priceNowTxt = document.createTextNode(price + ' ₽');
-  const nameItemTxtNode = document.createTextNode(category);
+  const priceNowTxt = document.createTextNode(price + ' BYN');
+  const nameItemTxtNode = document.createTextNode(title +'');
 
   fastCheck.append(fastCheckTxtNode);
   discountPop.append(discountPopTxtNode);
@@ -102,35 +100,61 @@ const addItem = (category, name, discount, price, count, url, id) => {
   })
 
   hiddenBlock.addEventListener('click', (event) => {
-    if(event.target === addPlus) {
+    if (event.target === addPlus) {
       num++;
       counter.innerText = num;
-    } else if(event.target === addMinus) {
+    }
+  });
+
+    addBtn.addEventListener('click', (event) => {
+      const getCards = JSON.parse(localStorage.getItem('items'));
+      const currentElem = event.target.closest('.popular__card');
+      const selectedTodo = getCards.find(
+      (item) => +item.id === +currentElem.dataset.id
+      );
+      console.log(selectedTodo)
+      selectedTodo.count++;
+      localStorage.setItem('items', JSON.stringify(getCards));
+    })
+    
+
+    addPlus.addEventListener('click', (event) => {
+      const getCards = JSON.parse(localStorage.getItem('items'));
+      const currentElem = event.target.closest('.popular__card');
+      const selectedTodo = getCards.find(
+      (item) => +item.id === +currentElem.dataset.id
+      );
+      selectedTodo.count++;
+      console.log(selectedTodo.count);
+      localStorage.setItem('items', JSON.stringify(getCards));
+    })
+
+    addMinus.addEventListener('click', (event) => {
+      const getCards = JSON.parse(localStorage.getItem('items'));
+      const currentElem = event.target.closest('.popular__card');
+      const selectedTodo = getCards.find(
+      (item) => +item.id === +currentElem.dataset.id
+      );
+      selectedTodo.count--;
       num--;
       counter.innerText = num;
-    }
-    if(num < 0) {
-      num = 0;
-      counter.innerText = num;
-    }
-  })
+      console.log(selectedTodo.count);
+      localStorage.setItem('items', JSON.stringify(getCards));
+    });
+  };
+  const getCard = () => {
+    const allItems = JSON.parse(localStorage.getItem('items'));
+
+    for (let i = 0; i < 6; i++) {
+      const randCard = allItems[Math.ceil(Math.random()*100)];
+      console.log(randCard);
+      addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+    };
+};
+  return getCard();
 };
 
-for (let i = 0; i < 6; i++) {
-  addItem(newDatabase[Math.floor(Math.random() * newDatabase.length)].category, newDatabase[Math.floor(Math.random() * newDatabase.length)].name, newDatabase[Math.floor(Math.random() * newDatabase.length)].discount, newDatabase[Math.floor(Math.random() * newDatabase.length)].price, newDatabase[Math.floor(Math.random() * newDatabase.length)].count, newDatabase[Math.floor(Math.random() * newDatabase.length)].image, newDatabase[Math.floor(Math.random() * newDatabase.length)].id);
-};
+addStorageItems();
 
-const imgUploadJsonplaceholder = async () => {
-  const imgArr = document.getElementsByClassName('popular__img');
-
-  for (let i = 0; i < imgArr.length; i++) {
-    const num = Math.round(Math.random() * 100);
-    const response = await fetch(`http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/${num}/`);
-    const card = await response.json();
-    console.log(card);
-    const imgUrl = await card.image_url;
-    imgArr[i].src = imgUrl;
-  }
-};
-
-imgUploadJsonplaceholder();
+//Exports
+/* export addItem(); */

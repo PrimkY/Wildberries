@@ -7,7 +7,7 @@ export default database = [
     price: '128.00',
     count: 18,
     image: 'http://loremflickr.com/640/480',
-    id: '1',
+    id: 1,
   },
   {
     category: 'Shoes',
@@ -16,7 +16,7 @@ export default database = [
     price: '533.00',
     count: 78,
     image: 'http://loremflickr.com/640/480',
-    id: '2',
+    id: 2,
   },
   {
     category: 'Shoes',
@@ -25,7 +25,7 @@ export default database = [
     price: '3.00',
     count: 88,
     image: 'http://loremflickr.com/640/480',
-    id: '3',
+    id: 3,
   },
   {
     category: 'Shoes',
@@ -34,7 +34,7 @@ export default database = [
     price: '396.00',
     count: 55,
     image: 'http://loremflickr.com/640/480',
-    id: '4',
+    id: 4,
   },
   {
     category: 'Shoes',
@@ -43,7 +43,7 @@ export default database = [
     price: '377.00',
     count: 90,
     image: 'http://loremflickr.com/640/480',
-    id: '5',
+    id: 5,
   },
   {
     category: 'Shoes',
@@ -52,7 +52,7 @@ export default database = [
     price: '92.00',
     count: 47,
     image: 'http://loremflickr.com/640/480',
-    id: '6',
+    id: 6,
   },
   {
     category: 'Shoes',
@@ -61,7 +61,7 @@ export default database = [
     price: '772.00',
     count: 15,
     image: 'http://loremflickr.com/640/480',
-    id: '7',
+    id: 7,
   },
   {
     category: 'Shoes',
@@ -70,16 +70,16 @@ export default database = [
     price: '8.00',
     count: 35,
     image: 'http://loremflickr.com/640/480',
-    id: '8',
+    id: 8,
   },
   {
     category: 'Shoes',
-    name: 'David Borer',
+    name: 'David Borr',
     discount: 30,
     price: '430.00',
     count: 86,
     image: 'http://loremflickr.com/640/480',
-    id: '9',
+    id: 9,
   },
   {
     category: 'Shoes',
@@ -88,7 +88,7 @@ export default database = [
     price: '621.00',
     count: 37,
     image: 'http://loremflickr.com/640/480',
-    id: '10',
+    id: 10,
   },
   {
     category: 'Shoes',
@@ -97,7 +97,7 @@ export default database = [
     price: '416.00',
     count: 65,
     image: 'http://loremflickr.com/640/480',
-    id: '11',
+    id: 11,
   },
   {
     category: 'Shoes',
@@ -106,7 +106,7 @@ export default database = [
     price: '644.00',
     count: 1,
     image: 'http://loremflickr.com/640/480',
-    id: '12',
+    id: 12,
   },
   {
     category: 'Shoes',
@@ -115,7 +115,7 @@ export default database = [
     price: '874.00',
     count: 78,
     image: 'http://loremflickr.com/640/480',
-    id: '13',
+    id: 13,
   },
   {
     category: 'Shoes',
@@ -124,7 +124,7 @@ export default database = [
     price: '596.00',
     count: 93,
     image: 'http://loremflickr.com/640/480',
-    id: '14',
+    id: 14,
   },
   {
     category: 'Shoes',
@@ -133,7 +133,7 @@ export default database = [
     price: '28.00',
     count: 45,
     image: 'http://loremflickr.com/640/480',
-    id: '15',
+    id: 15,
   },
   {
     category: 'Shoes',
@@ -142,7 +142,7 @@ export default database = [
     price: '6.00',
     count: 50,
     image: 'http://loremflickr.com/640/480',
-    id: '16',
+    id: 16,
   },
   {
     category: 'Shoes',
@@ -151,7 +151,7 @@ export default database = [
     price: '362.00',
     count: 48,
     image: 'http://loremflickr.com/640/480',
-    id: '17',
+    id: 17,
   },
   {
     category: 'Shoes',
@@ -160,7 +160,7 @@ export default database = [
     price: '702.00',
     count: 45,
     image: 'http://loremflickr.com/640/480',
-    id: '18',
+    id: 18,
   },
   {
     category: 'Shoes',
@@ -169,7 +169,7 @@ export default database = [
     price: '388.00',
     count: 12,
     image: 'http://loremflickr.com/640/480',
-    id: '19',
+    id: 119,
   },
   {
     category: 'Shoes',
@@ -178,7 +178,7 @@ export default database = [
     price: '818.00',
     count: 66,
     image: 'http://loremflickr.com/640/480',
-    id: '20',
+    id: 20,
   },
   {
     category: 'books',
@@ -187,16 +187,16 @@ export default database = [
     price: '658.00',
     count: 29,
     image: 'http://loremflickr.com/640/480',
-    id: '21',
+    id: 21,
   },
   {
     category: 'books',
-    name: 'Blanche Considine DVM',
+    name: 'Blanche Considin DM',
     discount: 27,
     price: '840.00',
     count: 29,
     image: 'http://loremflickr.com/640/480',
-    id: '22',
+    id: 22,
   },
   {
     category: 'books',
@@ -205,7 +205,7 @@ export default database = [
     price: '663.00',
     count: 61,
     image: 'http://loremflickr.com/640/480',
-    id: '23',
+    id: 23,
   },
   {
     category: 'books',
@@ -214,7 +214,7 @@ export default database = [
     price: '777.00',
     count: 81,
     image: 'http://loremflickr.com/640/480',
-    id: '24',
+    id: 24,
   },
   {
     category: 'books',
@@ -223,7 +223,7 @@ export default database = [
     price: '470.00',
     count: 33,
     image: 'http://loremflickr.com/640/480',
-    id: '25',
+    id: 25,
   },
   {
     category: 'books',
@@ -232,7 +232,7 @@ export default database = [
     price: '146.00',
     count: 25,
     image: 'http://loremflickr.com/640/480',
-    id: '26',
+    id: 26,
   },
   {
     category: 'books',
@@ -241,7 +241,7 @@ export default database = [
     price: '923.00',
     count: 25,
     image: 'http://loremflickr.com/640/480',
-    id: '27',
+    id: 27,
   },
   {
     category: 'books',
@@ -250,7 +250,7 @@ export default database = [
     price: '720.00',
     count: 60,
     image: 'http://loremflickr.com/640/480',
-    id: '28',
+    id: 28,
   },
   {
     category: 'books',
@@ -259,7 +259,7 @@ export default database = [
     price: '925.00',
     count: 29,
     image: 'http://loremflickr.com/640/480',
-    id: '29',
+    id: 29,
   },
   {
     category: 'books',
@@ -268,7 +268,7 @@ export default database = [
     price: '993.00',
     count: 74,
     image: 'http://loremflickr.com/640/480',
-    id: '30',
+    id: 30,
   },
   {
     category: 'books',
@@ -277,7 +277,7 @@ export default database = [
     price: '952.00',
     count: 81,
     image: 'http://loremflickr.com/640/480',
-    id: '31',
+    id: 31,
   },
   {
     category: 'books',
@@ -286,7 +286,7 @@ export default database = [
     price: '964.00',
     count: 88,
     image: 'http://loremflickr.com/640/480',
-    id: '32',
+    id: 32,
   },
   {
     category: 'books',
@@ -295,7 +295,7 @@ export default database = [
     price: '443.00',
     count: 31,
     image: 'http://loremflickr.com/640/480',
-    id: '33',
+    id: 33,
   },
   {
     category: 'books',
@@ -304,7 +304,7 @@ export default database = [
     price: '518.00',
     count: 73,
     image: 'http://loremflickr.com/640/480',
-    id: '34',
+    id: 34,
   },
   {
     category: 'books',
@@ -313,7 +313,7 @@ export default database = [
     price: '8.00',
     count: 64,
     image: 'http://loremflickr.com/640/480',
-    id: '35',
+    id: 35,
   },
   {
     category: 'books',
@@ -322,7 +322,7 @@ export default database = [
     price: '983.00',
     count: 4,
     image: 'http://loremflickr.com/640/480',
-    id: '36',
+    id: 36,
   },
   {
     category: 'books',
@@ -331,7 +331,7 @@ export default database = [
     price: '656.00',
     count: 35,
     image: 'http://loremflickr.com/640/480',
-    id: '37',
+    id: 37,
   },
   {
     category: 'books',
@@ -340,7 +340,7 @@ export default database = [
     price: '986.00',
     count: 12,
     image: 'http://loremflickr.com/640/480',
-    id: '38',
+    id: 38,
   },
   {
     category: 'books',
@@ -349,7 +349,7 @@ export default database = [
     price: '327.00',
     count: 53,
     image: 'http://loremflickr.com/640/480',
-    id: '39',
+    id: 39,
   },
   {
     category: 'books',
@@ -358,7 +358,7 @@ export default database = [
     price: '339.00',
     count: 28,
     image: 'http://loremflickr.com/640/480',
-    id: '40',
+    id: 40,
   },
   {
     category: 'accessories',
@@ -367,7 +367,7 @@ export default database = [
     price: '297.00',
     count: 18,
     image: 'http://loremflickr.com/640/480',
-    id: '41',
+    id: 41,
   },
   {
     category: 'accessories',
@@ -376,7 +376,7 @@ export default database = [
     price: '967.00',
     count: 14,
     image: 'http://loremflickr.com/640/480',
-    id: '42',
+    id: 42,
   },
   {
     category: 'accessories',
@@ -385,7 +385,7 @@ export default database = [
     price: '470.00',
     count: 90,
     image: 'http://loremflickr.com/640/480',
-    id: '43',
+    id: 43,
   },
   {
     category: 'accessories',
@@ -394,7 +394,7 @@ export default database = [
     price: '631.00',
     count: 99,
     image: 'http://loremflickr.com/640/480',
-    id: '44',
+    id: 44,
   },
   {
     category: 'accessories',
@@ -403,7 +403,7 @@ export default database = [
     price: '742.00',
     count: 69,
     image: 'http://loremflickr.com/640/480',
-    id: '45',
+    id: 45,
   },
   {
     category: 'accessories',
@@ -412,7 +412,7 @@ export default database = [
     price: '488.00',
     count: 92,
     image: 'http://loremflickr.com/640/480',
-    id: '46',
+    id: 46,
   },
   {
     category: 'accessories',
@@ -421,7 +421,7 @@ export default database = [
     price: '92.00',
     count: 69,
     image: 'http://loremflickr.com/640/480',
-    id: '47',
+    id: 47,
   },
   {
     category: 'accessories',
@@ -430,7 +430,7 @@ export default database = [
     price: '485.00',
     count: 16,
     image: 'http://loremflickr.com/640/480',
-    id: '48',
+    id: 48,
   },
   {
     category: 'accessories',
@@ -439,7 +439,7 @@ export default database = [
     price: '274.00',
     count: 76,
     image: 'http://loremflickr.com/640/480',
-    id: '49',
+    id: 49,
   },
   {
     category: 'accessories',
@@ -448,7 +448,7 @@ export default database = [
     price: '372.00',
     count: 40,
     image: 'http://loremflickr.com/640/480',
-    id: '50',
+    id: 50,
   },
   {
     category: 'accessories',
@@ -457,7 +457,7 @@ export default database = [
     price: '582.00',
     count: 83,
     image: 'http://loremflickr.com/640/480',
-    id: '51',
+    id: 51,
   },
   {
     category: 'accessories',
@@ -466,7 +466,7 @@ export default database = [
     price: '67.00',
     count: 71,
     image: 'http://loremflickr.com/640/480',
-    id: '52',
+    id: 52,
   },
   {
     category: 'accessories',
@@ -475,7 +475,7 @@ export default database = [
     price: '100.00',
     count: 8,
     image: 'http://loremflickr.com/640/480',
-    id: '53',
+    id: 53,
   },
   {
     category: 'accessories',
@@ -484,7 +484,7 @@ export default database = [
     price: '36.00',
     count: 22,
     image: 'http://loremflickr.com/640/480',
-    id: '54',
+    id: 54,
   },
   {
     category: 'accessories',
@@ -493,7 +493,7 @@ export default database = [
     price: '554.00',
     count: 54,
     image: 'http://loremflickr.com/640/480',
-    id: '55',
+    id: 55,
   },
   {
     category: 'accessories',
@@ -502,7 +502,7 @@ export default database = [
     price: '704.00',
     count: 53,
     image: 'http://loremflickr.com/640/480',
-    id: '56',
+    id: 56,
   },
   {
     category: 'accessories',
@@ -511,7 +511,7 @@ export default database = [
     price: '997.00',
     count: 16,
     image: 'http://loremflickr.com/640/480',
-    id: '57',
+    id: 57,
   },
   {
     category: 'accessories',
@@ -520,7 +520,7 @@ export default database = [
     price: '701.00',
     count: 30,
     image: 'http://loremflickr.com/640/480',
-    id: '58',
+    id: 58,
   },
   {
     category: 'accessories',
@@ -529,7 +529,7 @@ export default database = [
     price: '496.00',
     count: 66,
     image: 'http://loremflickr.com/640/480',
-    id: '59',
+    id: 59,
   },
   {
     category: 'accessories',
@@ -538,7 +538,7 @@ export default database = [
     price: '409.00',
     count: 46,
     image: 'http://loremflickr.com/640/480',
-    id: '60',
+    id: 60,
   },
   {
     category: 'toys',
@@ -547,7 +547,7 @@ export default database = [
     price: '974.00',
     count: 74,
     image: 'http://loremflickr.com/640/480',
-    id: '61',
+    id: 61,
   },
   {
     category: 'toys',
@@ -556,7 +556,7 @@ export default database = [
     price: '841.00',
     count: 18,
     image: 'http://loremflickr.com/640/480',
-    id: '62',
+    id: 62,
   },
   {
     category: 'toys',
@@ -565,7 +565,7 @@ export default database = [
     price: '671.00',
     count: 14,
     image: 'http://loremflickr.com/640/480',
-    id: '63',
+    id: 63,
   },
   {
     category: 'toys',
@@ -574,7 +574,7 @@ export default database = [
     price: '563.00',
     count: 32,
     image: 'http://loremflickr.com/640/480',
-    id: '64',
+    id: 64,
   },
   {
     category: 'toys',
@@ -583,7 +583,7 @@ export default database = [
     price: '89.00',
     count: 34,
     image: 'http://loremflickr.com/640/480',
-    id: '65',
+    id: 65,
   },
   {
     category: 'toys',
@@ -592,7 +592,7 @@ export default database = [
     price: '470.00',
     count: 22,
     image: 'http://loremflickr.com/640/480',
-    id: '66',
+    id: 66,
   },
   {
     category: 'toys',
@@ -601,7 +601,7 @@ export default database = [
     price: '48.00',
     count: 34,
     image: 'http://loremflickr.com/640/480',
-    id: '67',
+    id: 67,
   },
   {
     category: 'toys',
@@ -610,7 +610,7 @@ export default database = [
     price: '150.00',
     count: 23,
     image: 'http://loremflickr.com/640/480',
-    id: '68',
+    id: 68,
   },
   {
     category: 'toys',
@@ -619,7 +619,7 @@ export default database = [
     price: '124.00',
     count: 89,
     image: 'http://loremflickr.com/640/480',
-    id: '69',
+    id: 69,
   },
   {
     category: 'toys',
@@ -628,7 +628,7 @@ export default database = [
     price: '766.00',
     count: 86,
     image: 'http://loremflickr.com/640/480',
-    id: '70',
+    id: 70,
   },
   {
     category: 'toys',
@@ -637,7 +637,7 @@ export default database = [
     price: '100.00',
     count: 5,
     image: 'http://loremflickr.com/640/480',
-    id: '71',
+    id: 71,
   },
   {
     category: 'toys',
@@ -646,7 +646,7 @@ export default database = [
     price: '447.00',
     count: 35,
     image: 'http://loremflickr.com/640/480',
-    id: '72',
+    id: 72,
   },
   {
     category: 'toys',
@@ -655,7 +655,7 @@ export default database = [
     price: '712.00',
     count: 85,
     image: 'http://loremflickr.com/640/480',
-    id: '73',
+    id: 73,
   },
   {
     category: 'toys',
@@ -664,7 +664,7 @@ export default database = [
     price: '622.00',
     count: 30,
     image: 'http://loremflickr.com/640/480',
-    id: '74',
+    id: 74,
   },
   {
     category: 'toys',
@@ -673,7 +673,7 @@ export default database = [
     price: '832.00',
     count: 28,
     image: 'http://loremflickr.com/640/480',
-    id: '75',
+    id: 75,
   },
   {
     category: 'toys',
@@ -682,7 +682,7 @@ export default database = [
     price: '180.00',
     count: 75,
     image: 'http://loremflickr.com/640/480',
-    id: '76',
+    id: 76,
   },
   {
     category: 'toys',
@@ -691,7 +691,7 @@ export default database = [
     price: '389.00',
     count: 5,
     image: 'http://loremflickr.com/640/480',
-    id: '77',
+    id: 77,
   },
   {
     category: 'toys',
@@ -700,7 +700,7 @@ export default database = [
     price: '71.00',
     count: 49,
     image: 'http://loremflickr.com/640/480',
-    id: '78',
+    id: 78,
   },
   {
     category: 'toys',
@@ -709,7 +709,7 @@ export default database = [
     price: '84.00',
     count: 69,
     image: 'http://loremflickr.com/640/480',
-    id: '79',
+    id: 79,
   },
   {
     category: 'toys',
@@ -718,7 +718,7 @@ export default database = [
     price: '360.00',
     count: 79,
     image: 'http://loremflickr.com/640/480',
-    id: '80',
+    id: 80,
   },
   {
     category: 'sport',
@@ -727,7 +727,7 @@ export default database = [
     price: '682.00',
     count: 95,
     image: 'http://loremflickr.com/640/480',
-    id: '81',
+    id: 81,
   },
   {
     category: 'sport',
@@ -736,7 +736,7 @@ export default database = [
     price: '71.00',
     count: 21,
     image: 'http://loremflickr.com/640/480',
-    id: '82',
+    id: 82,
   },
   {
     category: 'sport',
@@ -745,7 +745,7 @@ export default database = [
     price: '782.00',
     count: 66,
     image: 'http://loremflickr.com/640/480',
-    id: '83',
+    id: 83,
   },
   {
     category: 'sport',
@@ -754,7 +754,7 @@ export default database = [
     price: '52.00',
     count: 51,
     image: 'http://loremflickr.com/640/480',
-    id: '84',
+    id: 84,
   },
   {
     category: 'sport',
@@ -763,7 +763,7 @@ export default database = [
     price: '731.00',
     count: 97,
     image: 'http://loremflickr.com/640/480',
-    id: '85',
+    id: 85,
   },
   {
     category: 'sport',
@@ -772,7 +772,7 @@ export default database = [
     price: '796.00',
     count: 66,
     image: 'http://loremflickr.com/640/480',
-    id: '86',
+    id: 86,
   },
   {
     category: 'sport',
@@ -781,7 +781,7 @@ export default database = [
     price: '559.00',
     count: 31,
     image: 'http://loremflickr.com/640/480',
-    id: '87',
+    id: 87,
   },
   {
     category: 'sport',
@@ -790,7 +790,7 @@ export default database = [
     price: '945.00',
     count: 59,
     image: 'http://loremflickr.com/640/480',
-    id: '88',
+    id: 88,
   },
   {
     category: 'sport',
@@ -799,7 +799,7 @@ export default database = [
     price: '146.00',
     count: 23,
     image: 'http://loremflickr.com/640/480',
-    id: '89',
+    id: 89,
   },
   {
     category: 'sport',
@@ -808,7 +808,7 @@ export default database = [
     price: '266.00',
     count: 22,
     image: 'http://loremflickr.com/640/480',
-    id: '90',
+    id: 90,
   },
   {
     category: 'sport',
@@ -817,7 +817,7 @@ export default database = [
     price: '468.00',
     count: 36,
     image: 'http://loremflickr.com/640/480',
-    id: '91',
+    id: 91,
   },
   {
     category: 'sport',
@@ -826,7 +826,7 @@ export default database = [
     price: '977.00',
     count: 39,
     image: 'http://loremflickr.com/640/480',
-    id: '92',
+    id: 92,
   },
   {
     category: 'sport',
@@ -835,7 +835,7 @@ export default database = [
     price: '357.00',
     count: 87,
     image: 'http://loremflickr.com/640/480',
-    id: '93',
+    id: 93,
   },
   {
     category: 'sport',
@@ -844,7 +844,7 @@ export default database = [
     price: '431.00',
     count: 92,
     image: 'http://loremflickr.com/640/480',
-    id: '94',
+    id: 94,
   },
   {
     category: 'sport',
@@ -853,7 +853,7 @@ export default database = [
     price: '186.00',
     count: 77,
     image: 'http://loremflickr.com/640/480',
-    id: '95',
+    id: 95,
   },
   {
     category: 'sport',
@@ -862,7 +862,7 @@ export default database = [
     price: '690.00',
     count: 73,
     image: 'http://loremflickr.com/640/480',
-    id: '96',
+    id: 96,
   },
   {
     category: 'sport',
@@ -871,7 +871,7 @@ export default database = [
     price: '733.00',
     count: 63,
     image: 'http://loremflickr.com/640/480',
-    id: '97',
+    id: 97,
   },
   {
     category: 'sport',
@@ -880,7 +880,7 @@ export default database = [
     price: '962.00',
     count: 83,
     image: 'http://loremflickr.com/640/480',
-    id: '98',
+    id: 98,
   },
   {
     category: 'sport',
@@ -889,7 +889,7 @@ export default database = [
     price: '10.00',
     count: 33,
     image: 'http://loremflickr.com/640/480',
-    id: '99',
+    id: 99,
   },
   {
     category: 'sport',
@@ -898,6 +898,6 @@ export default database = [
     price: '64.00',
     count: 49,
     image: 'http://loremflickr.com/640/480',
-    id: '100',
+    id: 100,
   },
 ];

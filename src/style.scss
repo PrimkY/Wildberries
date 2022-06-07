@@ -434,6 +434,7 @@ h6,
   cursor: pointer;
   width: 25px;
   height: 25px;
+  margin-left: 30px;
   color: $main__color;
   &:hover {
     .burger__line, .burger__line::before, .burger__line::after {
@@ -445,7 +446,7 @@ h6,
 .burger__line {
     position: absolute;
     top: 45%;
-    left: 30px;
+    left: 0px;
     width: 30px;
     height: 3.5px;
     border-radius: 20px;
