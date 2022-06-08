@@ -144,12 +144,27 @@ const addStorageItems = async() => {
   };
   const getCard = () => {
     const allItems = JSON.parse(localStorage.getItem('items'));
+    const randCardId = allItems.filter(elem => {
+      elem.category === "books";
+    })
+    console.log(allItems);
+    console.log(randCardId);
+    //add
+    let locate = document.location.href;
+    const splitElem = locate.split('/');
+    const lastElem = splitElem[splitElem.length-1];
+    if(lastElem === 'books.html') {
+      for (let i = 0; i < 20; i++) {
+        const randCard = randCardId[Math.ceil(Math.random()*100)];
+        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+      };
 
-    for (let i = 0; i < 6; i++) {
-      const randCard = allItems[Math.ceil(Math.random()*100)];
-      console.log(randCard);
-      addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
-    };
+    } else {
+      for (let i = 0; i < 6; i++) {
+        const randCard = allItems[Math.ceil(Math.random()*100)];
+        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+      };
+    }
 };
   return getCard();
 };
