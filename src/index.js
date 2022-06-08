@@ -30,10 +30,8 @@ const addStorageItems = async() => {
   const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
   const cards = await response.json();
 
-  console.log(localStorage);
   if(typeof localStorage === 'null') {
     localStorage.setItem('items', JSON.stringify(cards));
-  } else {
   }
 
 
@@ -99,6 +97,8 @@ const addStorageItems = async() => {
   if(count > 0) {
     card.append(hiddenBlock);
     hiddenBlock.style.display = 'block';
+    counter.innerText = count;
+    hiddenBlock.style.display = 'flex';
   } else {
     card.append(hiddenBlock);
   }
@@ -107,17 +107,10 @@ const addStorageItems = async() => {
   hiddenBlock.append(counter);
   hiddenBlock.append(addPlus);
 
-  let num = count;
-  counter.innerText = num;
 
   addBtn.addEventListener('click', () => {
     addBtn.style.display = 'none';
     hiddenBlock.style.display = 'flex';
-  })
-
-  hiddenBlock.addEventListener('click', (event) => {
-    if (event.target === addPlus) {
-    }
   });
 
     addBtn.addEventListener('click', (event) => {
@@ -127,9 +120,10 @@ const addStorageItems = async() => {
       (item) => +item.id === +currentElem.dataset.id
       );
       selectedTodo.count++;
+      counter.innerText = selectedTodo.count;
       localStorage.setItem('items', JSON.stringify(getCards));
     })
-    
+
 
     addPlus.addEventListener('click', (event) => {
       const getCards = JSON.parse(localStorage.getItem('items'));
@@ -149,7 +143,7 @@ const addStorageItems = async() => {
         (item) => +item.id === +currentElem.dataset.id
         );
         if(selectedTodo.count < 1) {
-          
+
         } else {
           selectedTodo.count--;
           counter.innerText = selectedTodo.count;
@@ -157,7 +151,8 @@ const addStorageItems = async() => {
         }
         if(selectedTodo.count === 0) {
           const newBlock = currentElem.querySelector('.popular__hidden-block');
-          hiddenBlock.style.display = 'hidden';
+          hiddenBlock.style.display = 'none';
+          addBtn.style.display = 'block';
         }
     });
   };
