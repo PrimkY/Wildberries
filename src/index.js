@@ -144,21 +144,57 @@ const addStorageItems = async() => {
   };
   const getCard = () => {
     const allItems = JSON.parse(localStorage.getItem('items'));
-    const randCardId = allItems.filter(elem => {
-      elem.category === "books";
-    })
-    console.log(allItems);
-    console.log(randCardId);
-    //add
+
     let locate = document.location.href;
     const splitElem = locate.split('/');
     const lastElem = splitElem[splitElem.length-1];
+
     if(lastElem === 'books.html') {
-      for (let i = 0; i < 20; i++) {
-        const randCard = randCardId[Math.ceil(Math.random()*100)];
+      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      const randCardId = allItems.filter(elem => {
+        return elem.category === "books";
+      })
+      for (let i = 0; i < randCardId.length; i++) {
+        let randCard = randCardId[i];
         addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
       };
 
+    } else if(lastElem === 'shoes.html') {
+      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      const randCardId = allItems.filter(elem => {
+        return elem.category === "Shoes";
+      })
+      for (let i = 0; i < randCardId.length; i++) {
+        let randCard = randCardId[i];
+        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+      };
+    } else if(lastElem === 'sport.html') {
+      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      const randCardId = allItems.filter(elem => {
+        return elem.category === "sport";
+      })
+      for (let i = 0; i < randCardId.length; i++) {
+        let randCard = randCardId[i];
+        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+      };
+    } else if(lastElem === 'toys.html') {
+      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      const randCardId = allItems.filter(elem => {
+        return elem.category === "toys";
+      })
+      for (let i = 0; i < randCardId.length; i++) {
+        let randCard = randCardId[i];
+        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+      };
+    } else if(lastElem === 'accessories.html') {
+      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      const randCardId = allItems.filter(elem => {
+        return elem.category === "accessories";
+      })
+      for (let i = 0; i < randCardId.length; i++) {
+        let randCard = randCardId[i];
+        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+      };
     } else {
       for (let i = 0; i < 6; i++) {
         const randCard = allItems[Math.ceil(Math.random()*100)];
