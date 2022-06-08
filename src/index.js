@@ -29,7 +29,12 @@ export const GenerateItem = function (category,name,discount,price,count,image,i
 const addStorageItems = async() => {
   const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
   const cards = await response.json();
-  localStorage.setItem('items', JSON.stringify(cards));
+
+  console.log(localStorage);
+  if(typeof localStorage === 'null') {
+    localStorage.setItem('items', JSON.stringify(cards));
+  } else {
+  }
 
 
   const addItem = (category, title, discount, price, count, url, id) => {
@@ -47,6 +52,10 @@ const addStorageItems = async() => {
   const addMinus = document.createElement('i');
   const counter = document.createElement('span');
   const addPlus = document.createElement('i');
+
+  if(count > 0) {
+    addBtn.style.display = 'block';
+  }
 
   card.dataset.id = id;
   const getImage = JSON.parse(localStorage.getItem('items'));
@@ -86,12 +95,19 @@ const addStorageItems = async() => {
   priceRow.append(priceNow);
   row.append(liItem);
   liItem.append(nameItem);
-  card.append(hiddenBlock);
+
+  if(count > 0) {
+    card.append(hiddenBlock);
+    hiddenBlock.style.display = 'block';
+  } else {
+    card.append(hiddenBlock);
+  }
+
   hiddenBlock.append(addMinus);
   hiddenBlock.append(counter);
   hiddenBlock.append(addPlus);
 
-  let num = 1;
+  let num = count;
   counter.innerText = num;
 
   addBtn.addEventListener('click', () => {
@@ -101,8 +117,6 @@ const addStorageItems = async() => {
 
   hiddenBlock.addEventListener('click', (event) => {
     if (event.target === addPlus) {
-      num++;
-      counter.innerText = num;
     }
   });
 
@@ -124,6 +138,7 @@ const addStorageItems = async() => {
       (item) => +item.id === +currentElem.dataset.id
       );
       selectedTodo.count++;
+      counter.innerText = selectedTodo.count;
       localStorage.setItem('items', JSON.stringify(getCards));
     })
 
@@ -131,12 +146,19 @@ const addStorageItems = async() => {
       const getCards = JSON.parse(localStorage.getItem('items'));
       const currentElem = event.target.closest('.popular__card');
       const selectedTodo = getCards.find(
-      (item) => +item.id === +currentElem.dataset.id
-      );
-      selectedTodo.count--;
-      num--;
-      counter.innerText = num;
-      localStorage.setItem('items', JSON.stringify(getCards));
+        (item) => +item.id === +currentElem.dataset.id
+        );
+        if(selectedTodo.count < 1) {
+          
+        } else {
+          selectedTodo.count--;
+          counter.innerText = selectedTodo.count;
+          localStorage.setItem('items', JSON.stringify(getCards));
+        }
+        if(selectedTodo.count === 0) {
+          const newBlock = currentElem.querySelector('.popular__hidden-block');
+          hiddenBlock.style.display = 'hidden';
+        }
     });
   };
   const getCard = () => {
