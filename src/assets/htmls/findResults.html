@@ -18,24 +18,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-  <title>Wildberries</title>
+  <link rel="stylesheet" href="./../../main.css">
+  <title>Search Results</title>
 </head>
-
 <body>
 <div class="container">
   <header class="header">
     <div class="header__burger">
       <span class="burger__line"></span>
     </div>
-    <a class="header__logo" href="#"> <img class="header__title"
-                                           src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Wildberries_Logo.png" alt="">
+    <a class="header__logo" href="../../index.html"> <img class="header__title"
+                                                          src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Wildberries_Logo.png" alt="">
     </a>
     <div class="header__input-wrapper">
       <input type="text" class="header__search" placeholder="Я ищу...">
       <i class="fa-solid fa-magnifying-glass"></i>
       <i class="fa-solid fa-basket-shopping responsive-basket"></i>
     </div>
-    <a class="header__basket-link" href="./assets/htmls/basket.html"><button class="header__basket basket__btn">Корзина<i
+    <a class="header__basket-link" href="./basket.html"><button class="header__basket basket__btn">Корзина<i
       class="fa-solid fa-basket-shopping"></i></button></a>
   </header>
 
@@ -46,42 +46,30 @@
         <li class="menu__close">✖</li>
         <li class="menu__logo"><img src="https://free-png.ru/wp-content/uploads/2021/11/free-png.ru-419-700x535.png"
                                     alt=""></li>
-        <li class="menu__item"><a href="./assets/htmls/books.html" class="menu__link">
+        <li class="menu__item"><a href="./books.html" class="menu__link">
           <p class="menu__category"><i class="fa-solid fa-book"></i>Книги</p>
         </a></li>
-        <li class="menu__item"><a href="./assets/htmls/accessories.html" class="menu__link">
+        <li class="menu__item"><a href="./accessories.html" class="menu__link">
           <p class="menu__category"><i class="fa-solid fa-glasses"></i>Аксессуары</p>
         </a></li>
-        <li class="menu__item"><a href="./assets/htmls/toys.html" class="menu__link">
+        <li class="menu__item"><a href="./toys.html" class="menu__link">
           <p class="menu__category"><i class="fa-brands fa-suse"></i>Игрушки</p>
         </a></li>
-        <li class="menu__item"><a href="./assets/htmls/sport.html" class="menu__link">
+        <li class="menu__item"><a href="./sport.html" class="menu__link">
           <p class="menu__category"><i class="fa-brands fa-superpowers"></i>Спорт</p>
         </a></li>
-        <li class="menu__item"><a href="./assets/htmls/shoes.html" class="menu__link">
+        <li class="menu__item"><a href="./shoes.html" class="menu__link">
           <p class="menu__category"><i class="fa-solid fa-shoe-prints"></i>Обувь</p>
         </a></li>
       </ul>
     </aside>
-
-    <section class="board">
-      <button class="board__prev"><i class="fa-solid fa-arrow-left"></i></button>
-      <button class="board__next"><i class="fa-solid fa-arrow-right"></i></button>
-      <ul class="board__nav">
-        <li class="board__item board__item--acive"></li>
-        <li class="board__item"></li>
-        <li class="board__item"></li>
-        <li class="board__item"></li>
-        <li class="board__item"></li>
-      </ul>
-    </section>
-
     <section class="popular">
-      <h2 class="popular__title">Хиты продаж</h2>
+      <h2 class="popular__title">Результаты поиска:</h2>
       <ul class="popular__row">
       </ul>
     </section>
-
   </main>
 </div>
+<script src="../../main.js"></script>
 </body>
+</html>
