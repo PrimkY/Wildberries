@@ -1,17 +1,5 @@
     /*Reset*/
-  a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text]
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
-
-/*Root for change the base color*/
-
-  ﻿
-    /*Reset*/
-  a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text]
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
-
-/*Root for change the base color*/
+  a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text];
 
 $main__color: #ffffff;
 $header__color: rgb(192, 7, 177);
@@ -122,6 +110,7 @@ h6,
   column-gap: 25px;
   align-items: center;
   background: linear-gradient(to right, rgba(81, 11, 96, 0.76), rgba(0, 0, 0, 0)),  $header__color;
+  min-height: 125px;
 }
 
 .header__logo {
@@ -136,21 +125,42 @@ h6,
   }
 }
 
+.header__logo-small {
+  display: none;
+  position: absolute;
+}
+
 .header__input-wrapper {
   position: relative;
 }
 
 .header__search {
   width: 100%;
-  padding: 10px 15px;
   border: 1px solid #ffffff;
   outline: none;
   font-size: 19px;
   padding: 16px 120px 16px 44px;
   border-radius: 10px;
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans Pro', sans-serif;
   background-color: $main__color;
   font-weight: 400;
+}
+
+.header__search-close {
+  display: none;
+  position: relative;
+  background-color: $main__color;
+  color: $violet__text__color;
+  font-size: 18px;
+  border: none;
+  border-radius: 7px;
+  padding: 15px;
+  &:hover {
+    color: $hover__color;
+  }
+  &:active {
+    color: $violet__text__color;
+  }
 }
 
 .fa-magnifying-glass {
@@ -175,7 +185,7 @@ h6,
 
 .header__basket {
   border-radius: 10px;
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans Pro', sans-serif;
   &:hover {
     transform: scale(1.1);
     background-color: $header__color;
@@ -192,7 +202,7 @@ h6,
 //Aside
 .menu {
   display: none;
-  position: relative;
+  //position: relative;
   background-color: $main__color;
   padding: 45px 25px 15px 25px;
   width: 300px;
@@ -328,7 +338,7 @@ h6,
       position: relative;
       z-index: 3;
       min-height: 300px;
-      font-family: 'Source Sans Pro';
+      font-family: 'Source Sans Pro', sans-serif;
       border-radius: 15px;
       display: flex;
       justify-content: center;
@@ -446,7 +456,7 @@ h6,
 .burger__line {
     position: absolute;
     top: 45%;
-    left: 0px;
+    left: 0;
     width: 30px;
     height: 3.5px;
     border-radius: 20px;
@@ -455,7 +465,7 @@ h6,
         &::after {
             content: '';
             position: absolute;
-            left: 0px;
+            left: 0;
             background-color: #ffffff;
             height: 3.5px;
             width: 30px;
@@ -549,9 +559,15 @@ h6,
     z-index: 6;
     width: 100%;
   }
-  .header__search {
+  .header-search-visible {
+    grid-template-columns: 1fr 5fr;
+  }
+  .hidden {
     display: none;
     position: absolute;
+  }
+  .visible {
+    display: block;
   }
   .header__basket {
     display: none;
@@ -576,15 +592,53 @@ h6,
     display: flex;
     justify-content: end;
     align-items: baseline;
-    max-width: 100px;
+    width: 95%;
   }
-  .responsive-basket:active, .fa-magnifying-glass:active {
-    color: #ac74d4;
+  .responsive-basket:active, .fa-magnifying-glass:active,
+  .responsive-basket:hover, .fa-magnifying-glass:hover{
+    color: #ce74d4;
+  }
+  .header__search-box {
+    display: none;
+    position: absolute;
+    margin: 8px;
+    background-color: $main__color;
+    border-radius: 7px;
+    z-index: 7;
+    width: 90%;
+    margin-right: 15px;
+    .header__search {
+      padding: 7px;
+      margin: 0;
+    }
+  }
+  .header__search-box-visible {
+    display: flex;
+    position: relative;
   }
   .board {
     margin-top: 150px;
   }
   .menu {
     z-index: 7;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .header__logo {
+    display: none;
+    position: absolute;
+  }
+  .header__logo-small{
+    display: block;
+    position: relative;
+    max-height: 109px;
+  }
+  .header__search::placeholder{
+    color: #ffffff;
+  }
+  .hidden {
+    display: none;
+    position: absolute;
   }
 }
