@@ -112,7 +112,6 @@ const addStorageItems = async() => {
       const selectedTodo = getCards.find(
       (item) => +item.id === +currentElem.dataset.id
       );
-      console.log(selectedTodo)
       selectedTodo.count++;
       localStorage.setItem('items', JSON.stringify(getCards));
     })
@@ -125,7 +124,6 @@ const addStorageItems = async() => {
       (item) => +item.id === +currentElem.dataset.id
       );
       selectedTodo.count++;
-      console.log(selectedTodo.count);
       localStorage.setItem('items', JSON.stringify(getCards));
     })
 
@@ -138,7 +136,6 @@ const addStorageItems = async() => {
       selectedTodo.count--;
       num--;
       counter.innerText = num;
-      console.log(selectedTodo.count);
       localStorage.setItem('items', JSON.stringify(getCards));
     });
   };
