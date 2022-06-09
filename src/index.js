@@ -30,7 +30,7 @@ const addStorageItems = async() => {
   const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
   const cards = await response.json();
 
-  if(typeof localStorage === 'null') {
+  if(localStorage.length === 0) {
     localStorage.setItem('items', JSON.stringify(cards));
   }
 
