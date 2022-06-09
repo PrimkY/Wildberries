@@ -157,8 +157,13 @@ const addStorageItems = async() => {
     });
   };
   const getCard = () => {
+    function randomItems() {
+      for (let i = 0; i < 6; i++) {
+        const randCard = allItems[Math.ceil(Math.random()*100)];
+        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+      }
+    };
     const allItems = JSON.parse(localStorage.getItem('items'));
-
     let locate = document.location.href;
     const splitElem = locate.split('/');
     const lastElem = splitElem[splitElem.length-1];
@@ -210,12 +215,35 @@ const addStorageItems = async() => {
         addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
       };
     } else {
-      for (let i = 0; i < 6; i++) {
-        const randCard = allItems[Math.ceil(Math.random()*100)];
-        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
-      };
+      randomItems();
     }
   };
+
+  //search
+  const searchMagnifier = document.querySelector('.fa-magnifying-glass');
+  const searchInput = document.querySelector('.header__search');
+  const popularRow = document.querySelector('.popular__row');
+  const popularTitle = document.querySelector('.popular__title');
+  const board = document.querySelector('.board');
+
+  searchMagnifier.addEventListener('click', () => {
+    if(searchInput.value) {
+      const itemsArr = JSON.parse(localStorage.getItem('items'));
+      popularRow.innerHTML = '';
+      for (let i = 0; i < itemsArr.length; i++) {
+        if (itemsArr[i].title.toLowerCase().includes(searchInput.value.toLowerCase())) {
+          addItem(itemsArr[i].category, itemsArr[i].title, itemsArr[i].discount, itemsArr[i].price, itemsArr[i].count, itemsArr[i].url, itemsArr[i].id);
+          row.style.gridTemplateColumns = 'repeat(6, 1fr)'
+        }
+      }
+      if (popularRow.innerHTML) {
+        popularTitle.innerHTML = 'Результат поиска:';
+      } else {
+        popularTitle.innerHTML = 'Ничего не найдено';
+      }
+    }
+  });
+
   return getCard();
 };
 
@@ -223,3 +251,27 @@ addStorageItems();
 
 //Exports
 /* export addItem(); */
+
+//search style
+const header = document.querySelector('.header');
+const headerLogo = document.querySelector('.header__logo');
+const headerLogoSmall = document.querySelector('.header__logo-small');
+const searchBox = document.querySelector('.header__search-box');
+const searchClose = document.querySelector('.header__search-close');
+const searchMagnifier = document.querySelector('.fa-magnifying-glass');
+
+searchMagnifier.addEventListener('click', () => {
+  searchBox.classList.add('header__search-box-visible');
+  searchClose.classList.add('visible');
+  headerLogo.classList.add('hidden');
+  headerLogoSmall.classList.add('hidden');
+  header.classList.add('header-search-visible');
+});
+searchClose.addEventListener('click', () => {
+  searchBox.classList.remove('header__search-box-visible');
+  searchClose.classList.remove('visible');
+  headerLogo.classList.remove('hidden');
+  headerLogoSmall.classList.remove('hidden');
+  header.classList.remove('header-search-visible');
+});
+
