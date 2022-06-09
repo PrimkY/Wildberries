@@ -233,7 +233,7 @@ const addStorageItems = async() => {
       for (let i = 0; i < itemsArr.length; i++) {
         if (itemsArr[i].title.toLowerCase().includes(searchInput.value.toLowerCase())) {
           addItem(itemsArr[i].category, itemsArr[i].title, itemsArr[i].discount, itemsArr[i].price, itemsArr[i].count, itemsArr[i].url, itemsArr[i].id);
-          row.style.gridTemplateColumns = 'repeat(6, 1fr)'
+          row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
         }
       }
       if (popularRow.innerHTML) {
