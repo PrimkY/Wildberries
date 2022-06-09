@@ -157,8 +157,13 @@ const addStorageItems = async() => {
     });
   };
   const getCard = () => {
+    function randomItems() {
+      for (let i = 0; i < 6; i++) {
+        const randCard = allItems[Math.ceil(Math.random()*100)];
+        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+      }
+    };
     const allItems = JSON.parse(localStorage.getItem('items'));
-
     let locate = document.location.href;
     const splitElem = locate.split('/');
     const lastElem = splitElem[splitElem.length-1];
@@ -210,10 +215,7 @@ const addStorageItems = async() => {
         addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
       };
     } else {
-      for (let i = 0; i < 6; i++) {
-        const randCard = allItems[Math.ceil(Math.random()*100)];
-        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
-      };
+      randomItems();
     }
   };
 
@@ -231,6 +233,7 @@ const addStorageItems = async() => {
       for (let i = 0; i < itemsArr.length; i++) {
         if (itemsArr[i].title.toLowerCase().includes(searchInput.value.toLowerCase())) {
           addItem(itemsArr[i].category, itemsArr[i].title, itemsArr[i].discount, itemsArr[i].price, itemsArr[i].count, itemsArr[i].url, itemsArr[i].id);
+          row.style.gridTemplateColumns = 'repeat(6, 1fr)'
         }
       }
       if (popularRow.innerHTML) {
@@ -271,3 +274,4 @@ searchClose.addEventListener('click', () => {
   headerLogoSmall.classList.remove('hidden');
   header.classList.remove('header-search-visible');
 });
+
