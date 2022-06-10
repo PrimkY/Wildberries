@@ -16,7 +16,15 @@ close.addEventListener('click', () => {
 
 const row = document.querySelector('.popular__row');
 
-export const GenerateItem = function (category,name,discount,price,count,image,id) {
+export const GenerateItem = function (
+  category,
+  name,
+  discount,
+  price,
+  count,
+  image,
+  id
+) {
   this.category = category;
   this.name = name;
   this.discount = discount;
@@ -26,14 +34,15 @@ export const GenerateItem = function (category,name,discount,price,count,image,i
   this.id = id;
 };
 
-const addStorageItems = async() => {
-  const response = await fetch('http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/');
+const addStorageItems = async () => {
+  const response = await fetch(
+    'http://ec2-3-91-9-40.compute-1.amazonaws.com:31337/products/'
+  );
   const cards = await response.json();
 
-  if(localStorage.length === 0) {
+  if (localStorage.length === 0) {
     localStorage.setItem('items', JSON.stringify(cards));
   }
-
 
   const addItem = (category, title, discount, price, count, url, id) => {
     const liItem = document.createElement('li');
@@ -51,18 +60,18 @@ const addStorageItems = async() => {
     const counter = document.createElement('span');
     const addPlus = document.createElement('i');
 
-    if(count > 0) {
+    if (count > 0) {
       addBtn.style.display = 'block';
     }
 
     card.dataset.id = id;
     const getImage = JSON.parse(localStorage.getItem('items'));
-    img.src = getImage[id-1].image_url;
+    img.src = getImage[id - 1].image_url;
 
     const fastCheckTxtNode = document.createTextNode('Быстрый просмотр');
     const discountPopTxtNode = document.createTextNode(discount + '%');
     const priceNowTxt = document.createTextNode(price + ' BYN');
-    const nameItemTxtNode = document.createTextNode(title +'');
+    const nameItemTxtNode = document.createTextNode(title + '');
 
     fastCheck.append(fastCheckTxtNode);
     discountPop.append(discountPopTxtNode);
@@ -79,7 +88,7 @@ const addStorageItems = async() => {
     priceRow.className = 'popular__price-row';
     priceNow.className = 'popular__price-now';
     nameItem.className = 'popular__name';
-    addMinus.className = 'fa-solid fa-minus minus--hidden'
+    addMinus.className = 'fa-solid fa-minus minus--hidden';
     addPlus.className = 'fa-solid fa-plus plus--hidden';
     hiddenBlock.className = 'popular__hidden-block';
 
@@ -94,7 +103,7 @@ const addStorageItems = async() => {
     row.append(liItem);
     liItem.append(nameItem);
 
-    if(count > 0) {
+    if (count > 0) {
       card.append(hiddenBlock);
       hiddenBlock.style.display = 'block';
       counter.innerText = count;
@@ -106,7 +115,6 @@ const addStorageItems = async() => {
     hiddenBlock.append(addMinus);
     hiddenBlock.append(counter);
     hiddenBlock.append(addPlus);
-
 
     addBtn.addEventListener('click', () => {
       addBtn.style.display = 'none';
@@ -122,8 +130,7 @@ const addStorageItems = async() => {
       selectedTodo.count++;
       counter.innerText = selectedTodo.count;
       localStorage.setItem('items', JSON.stringify(getCards));
-    })
-
+    });
 
     addPlus.addEventListener('click', (event) => {
       const getCards = JSON.parse(localStorage.getItem('items'));
@@ -134,7 +141,7 @@ const addStorageItems = async() => {
       selectedTodo.count++;
       counter.innerText = selectedTodo.count;
       localStorage.setItem('items', JSON.stringify(getCards));
-    })
+    });
 
     addMinus.addEventListener('click', (event) => {
       const getCards = JSON.parse(localStorage.getItem('items'));
@@ -142,14 +149,13 @@ const addStorageItems = async() => {
       const selectedTodo = getCards.find(
         (item) => +item.id === +currentElem.dataset.id
       );
-      if(selectedTodo.count < 1) {
-
+      if (selectedTodo.count < 1) {
       } else {
         selectedTodo.count--;
         counter.innerText = selectedTodo.count;
         localStorage.setItem('items', JSON.stringify(getCards));
       }
-      if(selectedTodo.count === 0) {
+      if (selectedTodo.count === 0) {
         const newBlock = currentElem.querySelector('.popular__hidden-block');
         hiddenBlock.style.display = 'none';
         addBtn.style.display = 'block';
@@ -159,61 +165,108 @@ const addStorageItems = async() => {
   const getCard = () => {
     function randomItems() {
       for (let i = 0; i < 6; i++) {
-        const randCard = allItems[Math.ceil(Math.random()*100)];
-        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+        const randCard = allItems[Math.ceil(Math.random() * 100)];
+        addItem(
+          randCard.category,
+          randCard.title,
+          randCard.discount,
+          randCard.price,
+          randCard.count,
+          randCard.url,
+          randCard.id
+        );
       }
-    };
+    }
     const allItems = JSON.parse(localStorage.getItem('items'));
     let locate = document.location.href;
     const splitElem = locate.split('/');
-    const lastElem = splitElem[splitElem.length-1];
+    const lastElem = splitElem[splitElem.length - 1];
 
-    if(lastElem === 'books.html') {
+    if (lastElem === 'books.html') {
       row.style.gridTemplateColumns = 'repeat(5, 1fr)';
-      const randCardId = allItems.filter(elem => {
-        return elem.category === "books";
-      })
+      const randCardId = allItems.filter((elem) => {
+        return elem.category === 'books';
+      });
       for (let i = 0; i < randCardId.length; i++) {
         let randCard = randCardId[i];
-        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
-      };
-
-    } else if(lastElem === 'shoes.html') {
+        addItem(
+          randCard.category,
+          randCard.title,
+          randCard.discount,
+          randCard.price,
+          randCard.count,
+          randCard.url,
+          randCard.id
+        );
+      }
+    } else if (lastElem === 'shoes.html') {
       row.style.gridTemplateColumns = 'repeat(5, 1fr)';
-      const randCardId = allItems.filter(elem => {
-        return elem.category === "Shoes";
-      })
+      const randCardId = allItems.filter((elem) => {
+        return elem.category === 'Shoes';
+      });
       for (let i = 0; i < randCardId.length; i++) {
         let randCard = randCardId[i];
-        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
-      };
-    } else if(lastElem === 'sport.html') {
+        addItem(
+          randCard.category,
+          randCard.title,
+          randCard.discount,
+          randCard.price,
+          randCard.count,
+          randCard.url,
+          randCard.id
+        );
+      }
+    } else if (lastElem === 'sport.html') {
       row.style.gridTemplateColumns = 'repeat(5, 1fr)';
-      const randCardId = allItems.filter(elem => {
-        return elem.category === "sport";
-      })
+      const randCardId = allItems.filter((elem) => {
+        return elem.category === 'sport';
+      });
       for (let i = 0; i < randCardId.length; i++) {
         let randCard = randCardId[i];
-        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
-      };
-    } else if(lastElem === 'toys.html') {
+        addItem(
+          randCard.category,
+          randCard.title,
+          randCard.discount,
+          randCard.price,
+          randCard.count,
+          randCard.url,
+          randCard.id
+        );
+      }
+    } else if (lastElem === 'toys.html') {
       row.style.gridTemplateColumns = 'repeat(5, 1fr)';
-      const randCardId = allItems.filter(elem => {
-        return elem.category === "toys";
-      })
+      const randCardId = allItems.filter((elem) => {
+        return elem.category === 'toys';
+      });
       for (let i = 0; i < randCardId.length; i++) {
         let randCard = randCardId[i];
-        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
-      };
-    } else if(lastElem === 'accessories.html') {
+        addItem(
+          randCard.category,
+          randCard.title,
+          randCard.discount,
+          randCard.price,
+          randCard.count,
+          randCard.url,
+          randCard.id
+        );
+      }
+    } else if (lastElem === 'accessories.html') {
       row.style.gridTemplateColumns = 'repeat(5, 1fr)';
-      const randCardId = allItems.filter(elem => {
-        return elem.category === "accessories";
-      })
+      const randCardId = allItems.filter((elem) => {
+        return elem.category === 'accessories';
+      });
       for (let i = 0; i < randCardId.length; i++) {
         let randCard = randCardId[i];
-        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
-      };
+        addItem(
+          randCard.category,
+          randCard.title,
+          randCard.discount,
+          randCard.price,
+          randCard.count,
+          randCard.url,
+          randCard.id
+        );
+      }
     } else {
       randomItems();
     }
@@ -227,12 +280,24 @@ const addStorageItems = async() => {
   const board = document.querySelector('.board');
 
   searchMagnifier.addEventListener('click', () => {
-    if(searchInput.value) {
+    if (searchInput.value) {
       const itemsArr = JSON.parse(localStorage.getItem('items'));
       popularRow.innerHTML = '';
       for (let i = 0; i < itemsArr.length; i++) {
-        if (itemsArr[i].title.toLowerCase().includes(searchInput.value.toLowerCase())) {
-          addItem(itemsArr[i].category, itemsArr[i].title, itemsArr[i].discount, itemsArr[i].price, itemsArr[i].count, itemsArr[i].url, itemsArr[i].id);
+        if (
+          itemsArr[i].title
+            .toLowerCase()
+            .includes(searchInput.value.toLowerCase())
+        ) {
+          addItem(
+            itemsArr[i].category,
+            itemsArr[i].title,
+            itemsArr[i].discount,
+            itemsArr[i].price,
+            itemsArr[i].count,
+            itemsArr[i].url,
+            itemsArr[i].id
+          );
           row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
         }
       }
@@ -274,4 +339,3 @@ searchClose.addEventListener('click', () => {
   headerLogoSmall.classList.remove('hidden');
   header.classList.remove('header-search-visible');
 });
-
