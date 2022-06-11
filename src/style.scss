@@ -611,6 +611,7 @@ h6,
   .header__input-wrapper {
     color: $main__color;
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
     width: 95%;
   }
@@ -632,6 +633,9 @@ h6,
     display: none;
     position: absolute;
   }
+.popular {
+  margin-top: 120px;
+}
 }
 
 @media only screen and (max-width: 600px) {
@@ -648,9 +652,6 @@ h6,
   .header__search{
     color: #000000;
     padding: 5px;
-    //&::placeholder {
-    //  color: $main__color;
-    //}
   }
 
   .hidden {

@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./../../main.css">
+  <link rel="icon" href="http://wildberries.co.il/assets/app-icon-180x180.png">
   <title>Shoes</title>
 </head>
 <body>
@@ -30,8 +31,13 @@
     <a class="header__logo" href="../../index.html"> <img class="header__title"
                                            src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Wildberries_Logo.png" alt="">
     </a>
+    <a href="#" class="header__logo-small"><img class="header__title"
+                                                src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Wildberries_Logo.png" alt=""></a>
     <div class="header__input-wrapper">
-      <input type="text" class="header__search" placeholder="Я ищу...">
+      <div class="header__search-box">
+        <input type="text" class="header__search" placeholder="Я ищу...">
+        <button class="header__search-close">✖</button>
+      </div>
       <i class="fa-solid fa-magnifying-glass"></i>
       <i class="fa-solid fa-basket-shopping responsive-basket"></i>
     </div>

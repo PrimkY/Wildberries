@@ -169,7 +169,7 @@ const addStorageItems = async() => {
     const lastElem = splitElem[splitElem.length-1];
 
     if(lastElem === 'books.html') {
-      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
       const randCardId = allItems.filter(elem => {
         return elem.category === "books";
       })
@@ -179,7 +179,7 @@ const addStorageItems = async() => {
       };
 
     } else if(lastElem === 'shoes.html') {
-      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
       const randCardId = allItems.filter(elem => {
         return elem.category === "Shoes";
       })
@@ -188,7 +188,7 @@ const addStorageItems = async() => {
         addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
       };
     } else if(lastElem === 'sport.html') {
-      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
       const randCardId = allItems.filter(elem => {
         return elem.category === "sport";
       })
@@ -197,7 +197,7 @@ const addStorageItems = async() => {
         addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
       };
     } else if(lastElem === 'toys.html') {
-      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
       const randCardId = allItems.filter(elem => {
         return elem.category === "toys";
       })
@@ -206,7 +206,7 @@ const addStorageItems = async() => {
         addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
       };
     } else if(lastElem === 'accessories.html') {
-      row.style.gridTemplateColumns = 'repeat(5, 1fr)';
+      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
       const randCardId = allItems.filter(elem => {
         return elem.category === "accessories";
       })
@@ -242,6 +242,27 @@ const addStorageItems = async() => {
         popularTitle.innerHTML = 'Ничего не найдено';
       }
     }
+
+    // enter
+    searchInput.addEventListener('keydown', (e) => {
+      if (searchInput.value) {
+        if (e.keyCode === 13) {
+          const itemsArr = JSON.parse(localStorage.getItem('items'));
+          popularRow.innerHTML = '';
+          for (let i = 0; i < itemsArr.length; i++) {
+            if (itemsArr[i].title.toLowerCase().includes(searchInput.value.toLowerCase())) {
+              addItem(itemsArr[i].category, itemsArr[i].title, itemsArr[i].discount, itemsArr[i].price, itemsArr[i].count, itemsArr[i].url, itemsArr[i].id);
+              row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
+            }
+          }
+          if (popularRow.innerHTML) {
+            popularTitle.innerHTML = 'Результат поиска:';
+          } else {
+            popularTitle.innerHTML = 'Ничего не найдено';
+          }
+        }
+      }
+    });
   });
 
   return getCard();
@@ -274,4 +295,3 @@ searchClose.addEventListener('click', () => {
   headerLogoSmall.classList.remove('hidden');
   header.classList.remove('header-search-visible');
 });
-
