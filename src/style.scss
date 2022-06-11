@@ -369,7 +369,6 @@ h6,
     height: 100%;
     border-radius: 15px;
   }
-
 }
 
 .plus--hidden, .minus--hidden {
@@ -443,6 +442,10 @@ h6,
 .popular__price-was {
   text-decoration: line-through;
   font-size: 15px;
+}
+
+.grid {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 //Burger
@@ -551,6 +554,10 @@ h6,
   .fa-basket-shopping {
     margin-top: 5px;
   }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -589,7 +596,6 @@ h6,
       position: relative;
     }
   }
-
   .header__basket {
     display: none;
     position: absolute;
@@ -623,6 +629,7 @@ h6,
     margin-top: 150px;
   }
   .menu {
+    width: 250px;
     z-index: 7;
   }
   .visible {
@@ -633,9 +640,17 @@ h6,
     display: none;
     position: absolute;
   }
-.popular {
+  .popular {
   margin-top: 120px;
+  }
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
+@media only screen and (max-width: 750px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -657,5 +672,9 @@ h6,
   .hidden {
     display: none;
     position: absolute;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
   }
 }
