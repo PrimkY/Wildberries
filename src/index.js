@@ -1,3 +1,4 @@
+import { slider } from './assets/scripts/slider';
 import './style.scss';
 
 const aside = document.querySelector('.menu');
@@ -273,5 +274,49 @@ searchClose.addEventListener('click', () => {
   headerLogo.classList.remove('hidden');
   headerLogoSmall.classList.remove('hidden');
   header.classList.remove('header-search-visible');
+});
+
+//slider
+let offset = 0;
+const sliderLine = document.querySelector('.slider__line'); 
+
+document.querySelector('.board__next').addEventListener('click', function(){
+  offset = offset + 1500;
+  if(offset > 3000) {
+      offset = 0;
+  }
+  sliderLine.style.left = -offset + 'px';
+});
+
+document.querySelector('.board__prev').addEventListener('click', function(){
+  offset = offset - 1500;
+  if(offset < 0) {
+      offset = 3000;
+  }
+  sliderLine.style.left = -offset + 'px';
+});
+
+document.querySelector('.item1').addEventListener('click',function(){
+  offset = offset + 1500;
+  if(offset = 0) {
+    offset = 0;
+}
+sliderLine.style.left = -offset + 'px';
+});
+
+document.querySelector('.item2').addEventListener('click',function(){
+  offset = offset + 1500;
+  if(offset = 1500) {
+    offset = 1500;
+}
+sliderLine.style.left = -offset + 'px';
+});
+
+document.querySelector('.item3').addEventListener('click',function(){
+  offset = offset + 1500;
+  if(offset = 3000) {
+    offset = 3000;
+}
+sliderLine.style.left = -offset + 'px';
 });
 
