@@ -279,7 +279,6 @@ const addStorageItems = async () => {
     const lastElem = splitElem[splitElem.length - 1];
 
     if (lastElem === 'books.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'books';
       });
@@ -296,7 +295,6 @@ const addStorageItems = async () => {
         );
       }
     } else if (lastElem === 'shoes.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'Shoes';
       });
@@ -313,7 +311,6 @@ const addStorageItems = async () => {
         );
       }
     } else if (lastElem === 'sport.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'sport';
       });
@@ -330,7 +327,6 @@ const addStorageItems = async () => {
         );
       }
     } else if (lastElem === 'toys.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'toys';
       });
@@ -347,7 +343,6 @@ const addStorageItems = async () => {
         );
       }
     } else if (lastElem === 'accessories.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'accessories';
       });
@@ -394,7 +389,6 @@ const addStorageItems = async () => {
             itemsArr[i].url,
             itemsArr[i].id
           );
-          row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
         }
       }
       row.classList.add('grid');
