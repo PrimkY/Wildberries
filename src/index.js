@@ -169,7 +169,94 @@ const addStorageItems = async () => {
         addBtn.style.display = 'block';
       }
     });
+
+    fastCheck.addEventListener('click', () => {
+      const fastCheckBlock = document.createElement('div');
+      fastCheckBlock.dataset.id = id;
+      const fastCheckClose = document.createElement('div');
+      const fastCheckBlockImg = document.createElement('div');
+      const fastCheckBlockDescription = document.createElement('div');
+      const fastCheckBlockDescriptionTitle = document.createElement('h2');
+      const fastCheckBlockDescriptionTitleText = document.createTextNode(title);
+      const fastCheckBlockDescriptionPrice = document.createElement('h3');
+      const fastCheckBlockDescriptionPriceText = document.createTextNode('Стоимость: '+ price + ' BYN' )
+      const fastCheckBlockDescriptionCategory = document.createElement('h3');
+      const fastCheckBlockDescriptionCategoryText = document.createTextNode('Категория: ' + category);
+      const fastCheckBlockDescriptionDiscount = document.createElement('h3');
+      const fastCheckBlockDescriptionDiscountText = document.createTextNode('Вы экономите: ' + discount + '%');
+      const fastCheckBlockDescriptionBtn = document.createElement('button');
+      let fastCheckBlockDescriptionBtnText = document.createTextNode('Добавить в корзину');
+
+
+      if (counter.innerText > 0){
+        fastCheckBlockDescriptionBtnText = ('В корзине ' + counter.innerText + ' шт.');
+      };
+
+      fastCheckBlock.className = 'fastCheckBlock';
+      fastCheckBlockImg.className = 'fastCheckBlockImg';
+      fastCheckBlockDescription.className = 'fastCheckBlockDescription';
+      fastCheckClose.className = 'fastCheckClose fa-regular fa-circle-xmark fa-2x';
+      fastCheckBlockDescriptionCategory.className = 'fastCheckBlockDescriptionCategory';
+      fastCheckBlockDescriptionBtn.className = 'fastCheckBlockDescriptionBtn title3';
+
+      fastCheckBlock.append(fastCheckClose);
+      fastCheckBlockImg.append(img);
+      fastCheckBlock.append(fastCheckBlockImg);
+      fastCheckBlockDescriptionTitle.append(fastCheckBlockDescriptionTitleText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionTitle);
+      fastCheckBlockDescriptionPrice.append(fastCheckBlockDescriptionPriceText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionPrice)
+      fastCheckBlockDescriptionCategory.append(fastCheckBlockDescriptionCategoryText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionCategory);
+      fastCheckBlockDescriptionDiscount.append(fastCheckBlockDescriptionDiscountText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionDiscount);
+      fastCheckBlockDescriptionBtn.append(fastCheckBlockDescriptionBtnText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionBtn)
+      fastCheckBlock.append(fastCheckBlockDescription);
+      body.append(fastCheckBlock);
+
+      fastCheckBlockDescriptionBtn.addEventListener('click', (event) =>{
+        const getCards = JSON.parse(localStorage.getItem('items'));
+        const currentElem = event.target.closest('.fastCheckBlock');
+        console.log(currentElem);
+        const selectedTodo = getCards.find(
+          (item) => +item.id === +currentElem.dataset.id
+        );
+        selectedTodo.count++;
+        console.log(selectedTodo);
+        fastCheckBlockDescriptionBtn.innerText = ('В корзине ' + selectedTodo.count + ' шт.');
+        localStorage.setItem('items', JSON.stringify(getCards));
+      });
+      fastCheckClose.addEventListener('click', () => {
+        const getCards = JSON.parse(localStorage.getItem('items'));
+        const currentElem = event.target.closest('.fastCheckBlock');
+        console.log(currentElem);
+        const selectedTodo = getCards.find(
+          (item) => +item.id === +currentElem.dataset.id
+        );
+        if (selectedTodo.count > 0) {
+          fastCheckBlock.remove();
+          card.append(img);
+          addBtn.append(addBtnPlus);
+          card.append(addBtn);
+          card.append(hiddenBlock);
+          card.append(discountPop);
+          addBtn.style.display = 'none';
+          hiddenBlock.style.display = 'flex';
+          counter.innerText = selectedTodo.count;
+        } else {
+          fastCheckBlock.remove();
+          card.append(img);
+          addBtn.append(addBtnPlus);
+          card.append(addBtn);
+          card.append(hiddenBlock);
+          card.append(discountPop);
+        }
+      });
+
+    });
   };
+
   const getCard = () => {
     function randomItems() {
       for (let i = 0; i < 6; i++) {

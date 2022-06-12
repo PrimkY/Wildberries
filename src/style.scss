@@ -704,6 +704,71 @@ h6,
   }
 }
 
+.fastCheckBlock{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 25;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 3px solid gray;
+  border-radius: 25px;
+}
+
+.fastCheckClose{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.fastCheckClose:hover{
+  transform: scale(1.1);
+}
+
+.fastCheckBlockImg{
+  display: inline-block;
+  width: 600px;
+  object-fit: fill;
+  padding: 50px 40px;
+}
+
+
+.fastCheckBlockDescription{
+  padding-top: 50px;
+  width: 100%;
+}
+
+.fastCheckBlockDescriptionCategory{
+  padding: 15px 0;
+}
+
+.fastCheckBlockDescriptionBtn{
+  display: block;
+  width: 250px;
+  height: 50px;
+  position: absolute;
+  bottom: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.fastCheckBlockDescriptionBtn:hover{
+  background-color: #eda4ed;
+  color: gray;
+  border-color: gray;
+}
+
+.fastCheckBlockDescriptionBtn:active{
+  background-color: #f051d4;
+  color: white;
+  border-color: white;
+}
+
 @media only screen and (max-width: 600px) {
   .header__logo {
     display: none;
