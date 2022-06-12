@@ -866,3 +866,15 @@ h6,
     top: 35%;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .fastCheckBlockImg {
+    max-height: 40%;
+    padding: 10px;
+  }
+
+  .fastCheckBlockDescription {
+    max-height: 60%;
+    padding: 10px;
+  }
+}
