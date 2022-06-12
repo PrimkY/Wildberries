@@ -1,3 +1,5 @@
+// @ts-ignore
+
 import './style.scss';
 
 const aside = document.querySelector('.menu');
@@ -304,10 +306,31 @@ const addStorageItems = async () => {
           row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
         }
       }
+      row.classList.add('grid');
       if (popularRow.innerHTML) {
         popularTitle.innerHTML = 'Результат поиска:';
       } else {
         popularTitle.innerHTML = 'Ничего не найдено';
+      }
+    }
+  });
+    // enter
+  searchInput.addEventListener('keydown', (event) => {
+    if (searchInput.value) {
+      if(event.keyCode === 13) {
+        const itemsArr = JSON.parse(localStorage.getItem('items'));
+        popularRow.innerHTML = '';
+        for (let i = 0; i < itemsArr.length; i++) {
+          if (itemsArr[i].title.toLowerCase().includes(searchInput.value.toLowerCase())) {
+            addItem(itemsArr[i].category, itemsArr[i].title, itemsArr[i].discount, itemsArr[i].price, itemsArr[i].count, itemsArr[i].url, itemsArr[i].id);
+          }
+        }
+        row.classList.add('grid');
+        if (popularRow.innerHTML) {
+          popularTitle.innerHTML = 'Результат поиска:';
+        } else {
+          popularTitle.innerHTML = 'Ничего не найдено';
+        }
       }
     }
   });
@@ -323,16 +346,16 @@ const headerLogo = document.querySelector('.header__logo');
 const headerLogoSmall = document.querySelector('.header__logo-small');
 const searchBox = document.querySelector('.header__search-box');
 const searchClose = document.querySelector('.header__search-close');
-const searchMagnifier = document.querySelector('.fa-magnifying-glass');
+const searchMagnifyingGlass = document.querySelector('.fa-magnifying-glass');
 
-searchMagnifier.addEventListener('click', () => {
+  searchMagnifyingGlass.addEventListener('click', () => {
   searchBox.classList.add('header__search-box-visible');
   searchClose.classList.add('visible');
   headerLogo.classList.add('hidden');
   headerLogoSmall.classList.add('hidden');
   header.classList.add('header-search-visible');
 });
-searchClose.addEventListener('click', () => {
+  searchClose.addEventListener('click', () => {
   searchBox.classList.remove('header__search-box-visible');
   searchClose.classList.remove('visible');
   headerLogo.classList.remove('hidden');
