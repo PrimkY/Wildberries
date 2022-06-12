@@ -1,3 +1,4 @@
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import './style.scss';
 
 const aside = document.querySelector('.menu');
@@ -157,65 +158,74 @@ const addStorageItems = async() => {
     });
 
     fastCheck.addEventListener('click', () => {
-    const fastCheckBlock = document.createElement('div');
-        const fastCheckClose = document.createElement('div');
-        const fastCheckBlockImg = document.createElement('div');
-        const fastCheckBlockDescription = document.createElement('div');
-        const fastCheckBlockDescriptionTitle = document.createElement('h2');
-        const fastCheckBlockDescriptionTitleText = document.createTextNode(name);
-        const fastCheckBlockDescriptionPrice = document.createElement('h3');
-        const fastCheckBlockDescriptionPriceText = document.createTextNode('Стоимость: '+ price + '₽' )
-        const fastCheckBlockDescriptionCategory = document.createElement('h3');
-        const fastCheckBlockDescriptionCategoryText = document.createTextNode('Категория: ' + category);
-        const fastCheckBlockDescriptionDiscount = document.createElement('h3');
-        const fastCheckBlockDescriptionDiscountText = document.createTextNode('Вы экономите: ' + discount + '%');
-        const fastCheckBlockDescriptionBtn = document.createElement('button');
-        const fastCheckBlockDescriptionBtnText = document.createTextNode('Добавить в корзину');
+      const fastCheckBlock = document.createElement('div');
+      const fastCheckClose = document.createElement('div');
+      const fastCheckBlockImg = document.createElement('div');
+      const fastCheckBlockDescription = document.createElement('div');
+      const fastCheckBlockDescriptionTitle = document.createElement('h2');
+      const fastCheckBlockDescriptionTitleText = document.createTextNode(title);
+      const fastCheckBlockDescriptionPrice = document.createElement('h3');
+      const fastCheckBlockDescriptionPriceText = document.createTextNode('Стоимость: '+ price + ' BYN' )
+      const fastCheckBlockDescriptionCategory = document.createElement('h3');
+      const fastCheckBlockDescriptionCategoryText = document.createTextNode('Категория: ' + category);
+      const fastCheckBlockDescriptionDiscount = document.createElement('h3');
+      const fastCheckBlockDescriptionDiscountText = document.createTextNode('Вы экономите: ' + discount + '%');
+      const fastCheckBlockDescriptionBtn = document.createElement('button');
+      let fastCheckBlockDescriptionBtnText = document.createTextNode('Добавить в корзину');
     
-        fastCheckBlock.className = 'fastCheckBlock';
-        fastCheckBlockImg.className = 'fastCheckBlockImg';
-        fastCheckBlockDescription.className = 'fastCheckBlockDescription';
-        fastCheckClose.className = 'fastCheckClose fa-regular fa-circle-xmark fa-2x';
-        fastCheckBlockDescriptionCategory.className = 'fastCheckBlockDescriptionCategory';
-        fastCheckBlockDescriptionBtn.className = 'fastCheckBlockDescriptionBtn title3';
-    
-        fastCheckBlock.append(fastCheckClose);
-        fastCheckBlockImg.append(img);
-        fastCheckBlock.append(fastCheckBlockImg);
-        fastCheckBlockDescriptionTitle.append(fastCheckBlockDescriptionTitleText);
-        fastCheckBlockDescription.append(fastCheckBlockDescriptionTitle);
-        fastCheckBlockDescriptionPrice.append(fastCheckBlockDescriptionPriceText);
-        fastCheckBlockDescription.append(fastCheckBlockDescriptionPrice)
-        fastCheckBlockDescriptionCategory.append(fastCheckBlockDescriptionCategoryText);
-        fastCheckBlockDescription.append(fastCheckBlockDescriptionCategory);
-        fastCheckBlockDescriptionDiscount.append(fastCheckBlockDescriptionDiscountText);
-        fastCheckBlockDescription.append(fastCheckBlockDescriptionDiscount);
-        fastCheckBlockDescriptionBtn.append(fastCheckBlockDescriptionBtnText);
-        fastCheckBlockDescription.append(fastCheckBlockDescriptionBtn)
-        fastCheckBlock.append(fastCheckBlockDescription);
-        body.append(fastCheckBlock);
-    
-        fastCheckClose.addEventListener('click', () => {
-            fastCheckBlock.remove();
-        } );
+      if (counter.innerText > 0){
+        fastCheckBlockDescriptionBtnText = ('В корзине ' + counter.innerText + ' шт.');
+      };
+
+      fastCheckBlock.className = 'fastCheckBlock';
+      fastCheckBlockImg.className = 'fastCheckBlockImg';
+      fastCheckBlockDescription.className = 'fastCheckBlockDescription';
+      fastCheckClose.className = 'fastCheckClose fa-regular fa-circle-xmark fa-2x';
+      fastCheckBlockDescriptionCategory.className = 'fastCheckBlockDescriptionCategory';
+      fastCheckBlockDescriptionBtn.className = 'fastCheckBlockDescriptionBtn title3';
+      
+      fastCheckBlock.append(fastCheckClose);
+      fastCheckBlockImg.append(img);
+      fastCheckBlock.append(fastCheckBlockImg);
+      fastCheckBlockDescriptionTitle.append(fastCheckBlockDescriptionTitleText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionTitle);
+      fastCheckBlockDescriptionPrice.append(fastCheckBlockDescriptionPriceText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionPrice)
+      fastCheckBlockDescriptionCategory.append(fastCheckBlockDescriptionCategoryText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionCategory);
+      fastCheckBlockDescriptionDiscount.append(fastCheckBlockDescriptionDiscountText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionDiscount);
+      fastCheckBlockDescriptionBtn.append(fastCheckBlockDescriptionBtnText);
+      fastCheckBlockDescription.append(fastCheckBlockDescriptionBtn)
+      fastCheckBlock.append(fastCheckBlockDescription);
+      body.append(fastCheckBlock);
+      
+      fastCheckClose.addEventListener('click', () => {
+        fastCheckBlock.remove();
+        card.append(img);
+        addBtn.append(addBtnPlus);
+        card.append(addBtn);
+        card.append(hiddenBlock);
+        card.append(discountPop);
+      });
+
     });
 
-    
-
-
-  };
-  const getCard = () => {
-    function randomItems() {
-      for (let i = 0; i < 6; i++) {
-        const randCard = allItems[Math.ceil(Math.random()*100)];
-        addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
+      };
+      
+      
+      const getCard = () => {
+        function randomItems() {
+          for (let i = 0; i < 6; i++) {
+            const randCard = allItems[Math.ceil(Math.random()*100)];
+            addItem(randCard.category, randCard.title, randCard.discount, randCard.price, randCard.count, randCard.url, randCard.id);
       }
     };
     const allItems = JSON.parse(localStorage.getItem('items'));
     let locate = document.location.href;
     const splitElem = locate.split('/');
     const lastElem = splitElem[splitElem.length-1];
-
+    
     if(lastElem === 'books.html') {
       row.style.gridTemplateColumns = 'repeat(5, 1fr)';
       const randCardId = allItems.filter(elem => {
@@ -266,14 +276,14 @@ const addStorageItems = async() => {
       randomItems();
     }
   };
-
+  
   //search
   const searchMagnifier = document.querySelector('.fa-magnifying-glass');
   const searchInput = document.querySelector('.header__search');
   const popularRow = document.querySelector('.popular__row');
   const popularTitle = document.querySelector('.popular__title');
   const board = document.querySelector('.board');
-
+  
   searchMagnifier.addEventListener('click', () => {
     if(searchInput.value) {
       const itemsArr = JSON.parse(localStorage.getItem('items'));
@@ -291,7 +301,7 @@ const addStorageItems = async() => {
       }
     }
   });
-
+  
   return getCard();
 };
 
