@@ -159,6 +159,7 @@ const addStorageItems = async() => {
 
     fastCheck.addEventListener('click', () => {
       const fastCheckBlock = document.createElement('div');
+      fastCheckBlock.dataset.id = id;
       const fastCheckClose = document.createElement('div');
       const fastCheckBlockImg = document.createElement('div');
       const fastCheckBlockDescription = document.createElement('div');
@@ -172,7 +173,8 @@ const addStorageItems = async() => {
       const fastCheckBlockDescriptionDiscountText = document.createTextNode('Вы экономите: ' + discount + '%');
       const fastCheckBlockDescriptionBtn = document.createElement('button');
       let fastCheckBlockDescriptionBtnText = document.createTextNode('Добавить в корзину');
-    
+
+
       if (counter.innerText > 0){
         fastCheckBlockDescriptionBtnText = ('В корзине ' + counter.innerText + ' шт.');
       };
@@ -183,7 +185,7 @@ const addStorageItems = async() => {
       fastCheckClose.className = 'fastCheckClose fa-regular fa-circle-xmark fa-2x';
       fastCheckBlockDescriptionCategory.className = 'fastCheckBlockDescriptionCategory';
       fastCheckBlockDescriptionBtn.className = 'fastCheckBlockDescriptionBtn title3';
-      
+
       fastCheckBlock.append(fastCheckClose);
       fastCheckBlockImg.append(img);
       fastCheckBlock.append(fastCheckBlockImg);
@@ -199,21 +201,52 @@ const addStorageItems = async() => {
       fastCheckBlockDescription.append(fastCheckBlockDescriptionBtn)
       fastCheckBlock.append(fastCheckBlockDescription);
       body.append(fastCheckBlock);
-      
+
+      fastCheckBlockDescriptionBtn.addEventListener('click', (event) =>{
+        const getCards = JSON.parse(localStorage.getItem('items'));
+        const currentElem = event.target.closest('.fastCheckBlock');
+        console.log(currentElem);
+        const selectedTodo = getCards.find(
+          (item) => +item.id === +currentElem.dataset.id
+        );
+        selectedTodo.count++;
+        console.log(selectedTodo);
+        fastCheckBlockDescriptionBtn.innerText = ('В корзине ' + selectedTodo.count + ' шт.');
+        localStorage.setItem('items', JSON.stringify(getCards));
+      });
+
       fastCheckClose.addEventListener('click', () => {
-        fastCheckBlock.remove();
-        card.append(img);
-        addBtn.append(addBtnPlus);
-        card.append(addBtn);
-        card.append(hiddenBlock);
-        card.append(discountPop);
+        const getCards = JSON.parse(localStorage.getItem('items'));
+        const currentElem = event.target.closest('.fastCheckBlock');
+        console.log(currentElem);
+        const selectedTodo = getCards.find(
+          (item) => +item.id === +currentElem.dataset.id
+        );
+        if (selectedTodo.count > 0) {
+          fastCheckBlock.remove();
+          card.append(img);
+          addBtn.append(addBtnPlus);
+          card.append(addBtn);
+          card.append(hiddenBlock);
+          card.append(discountPop);
+          addBtn.style.display = 'none';
+          hiddenBlock.style.display = 'flex';
+          counter.innerText = selectedTodo.count;
+        } else {
+          fastCheckBlock.remove();
+          card.append(img);
+          addBtn.append(addBtnPlus);
+          card.append(addBtn);
+          card.append(hiddenBlock);
+          card.append(discountPop);
+        }
       });
 
     });
 
       };
-      
-      
+
+
       const getCard = () => {
         function randomItems() {
           for (let i = 0; i < 6; i++) {
@@ -225,7 +258,7 @@ const addStorageItems = async() => {
     let locate = document.location.href;
     const splitElem = locate.split('/');
     const lastElem = splitElem[splitElem.length-1];
-    
+
     if(lastElem === 'books.html') {
       row.style.gridTemplateColumns = 'repeat(5, 1fr)';
       const randCardId = allItems.filter(elem => {
@@ -276,14 +309,14 @@ const addStorageItems = async() => {
       randomItems();
     }
   };
-  
+
   //search
   const searchMagnifier = document.querySelector('.fa-magnifying-glass');
   const searchInput = document.querySelector('.header__search');
   const popularRow = document.querySelector('.popular__row');
   const popularTitle = document.querySelector('.popular__title');
   const board = document.querySelector('.board');
-  
+
   searchMagnifier.addEventListener('click', () => {
     if(searchInput.value) {
       const itemsArr = JSON.parse(localStorage.getItem('items'));
@@ -301,7 +334,7 @@ const addStorageItems = async() => {
       }
     }
   });
-  
+
   return getCard();
 };
 
