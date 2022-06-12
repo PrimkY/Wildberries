@@ -618,7 +618,7 @@ h6,
     font-size: 80px;
     font-weight: 700;
   }
-  
+
   h3 {
     font-size: 50px;
     font-weight: 700;
@@ -897,7 +897,7 @@ h6,
   }
 
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
   }
   .slider__container{
     height: 200px;

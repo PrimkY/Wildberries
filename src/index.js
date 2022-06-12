@@ -191,7 +191,7 @@ const addStorageItems = async () => {
       const fastCheckBlockDescriptionBtn = document.createElement('button');
       const fastCheckBlockDescriptionBtnText = document.createTextNode('Добавить в корзину');
       const fastCheckBlockDescriptionBtnCount = document.createElement('p');
-      let fastCheckBlockDescriptionCountText = document.createTextNode('') 
+      let fastCheckBlockDescriptionCountText = document.createTextNode('')
 
 
       if (counter.innerText > 0){
@@ -399,12 +399,13 @@ const addStorageItems = async () => {
             itemsArr[i].url,
             itemsArr[i].id
           );
-          row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
+          row.style.gridTemplateColumns = '';
         }
       }
       row.classList.add('grid');
       if (popularRow.innerHTML) {
         popularTitle.innerHTML = 'Результат поиска:';
+        row.style.gridTemplateColumns = '';
       } else {
         popularTitle.innerHTML = 'Ничего не найдено';
       }
@@ -424,6 +425,7 @@ const addStorageItems = async () => {
         row.classList.add('grid');
         if (popularRow.innerHTML) {
           popularTitle.innerHTML = 'Результат поиска:';
+          row.style.gridTemplateColumns = '';
         } else {
           popularTitle.innerHTML = 'Ничего не найдено';
         }
@@ -435,6 +437,7 @@ const addStorageItems = async () => {
 };
 
 addStorageItems();
+
 
 //search style
 const header = document.querySelector('.header');
