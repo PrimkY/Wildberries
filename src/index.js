@@ -40,6 +40,7 @@ const addStorageItems = async () => {
   );
   const cards = await response.json();
 
+
   if (localStorage.length === 0) {
     localStorage.setItem('items', JSON.stringify(cards));
   }
@@ -60,7 +61,7 @@ const addStorageItems = async () => {
     const counter = document.createElement('span');
     const addPlus = document.createElement('i');
 
-    if (count > 0) {
+    if (count > 0) {   
       addBtn.style.display = 'block';
     }
 
@@ -68,10 +69,12 @@ const addStorageItems = async () => {
     const getImage = JSON.parse(localStorage.getItem('items'));
     img.src = getImage[id - 1].image_url;
 
+
     const fastCheckTxtNode = document.createTextNode('Быстрый просмотр');
     const discountPopTxtNode = document.createTextNode(discount + '%');
     const priceNowTxt = document.createTextNode(price + ' BYN');
     const nameItemTxtNode = document.createTextNode(title + '');
+
 
     fastCheck.append(fastCheckTxtNode);
     discountPop.append(discountPopTxtNode);
