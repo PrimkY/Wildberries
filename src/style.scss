@@ -148,7 +148,6 @@ h6,
 
   .header__search {
     width: 100%;
-    padding: 10px 15px;
     border: 1px solid #ffffff;
     outline: none;
     font-size: 19px;
@@ -209,7 +208,6 @@ h6,
 //Aside
 .menu {
   display: none;
-  position: relative;
   background-color: $main__color;
   padding: 45px 25px 15px 25px;
   width: 300px;
@@ -337,7 +335,7 @@ h6,
 
 .popular__row {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(175px, 1fr) );
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
 
@@ -445,7 +443,7 @@ h6,
 }
 
 .grid {
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 //Burger
@@ -466,7 +464,7 @@ h6,
 .burger__line {
   position: absolute;
   top: 45%;
-  left: 0px;
+  left: 0;
   width: 30px;
   height: 3.5px;
   border-radius: 20px;
@@ -475,7 +473,7 @@ h6,
   &::after {
     content: '';
     position: absolute;
-    left: 0px;
+    left: 0;
     background-color: #ffffff;
     height: 3.5px;
     width: 30px;
@@ -553,10 +551,6 @@ h6,
 
   .fa-basket-shopping {
     margin-top: 5px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(5, 1fr);
   }
 }
 
