@@ -189,11 +189,13 @@ const addStorageItems = async () => {
       const fastCheckBlockDescriptionDiscount = document.createElement('h3');
       const fastCheckBlockDescriptionDiscountText = document.createTextNode('Вы экономите: ' + discount + '%');
       const fastCheckBlockDescriptionBtn = document.createElement('button');
-      let fastCheckBlockDescriptionBtnText = document.createTextNode('Добавить в корзину');
+      const fastCheckBlockDescriptionBtnText = document.createTextNode('Добавить в корзину');
+      const fastCheckBlockDescriptionBtnCount = document.createElement('p');
+      let fastCheckBlockDescriptionCountText = document.createTextNode('') 
 
 
       if (counter.innerText > 0){
-        fastCheckBlockDescriptionBtnText = ('В корзине ' + counter.innerText + ' шт.');
+        fastCheckBlockDescriptionCountText = ('В корзине ' + counter.innerText + ' шт.');
       };
 
       fastCheckBlock.className = 'fastCheckBlock';
@@ -202,6 +204,7 @@ const addStorageItems = async () => {
       fastCheckClose.className = 'fastCheckClose fa-regular fa-circle-xmark fa-2x';
       fastCheckBlockDescriptionCategory.className = 'fastCheckBlockDescriptionCategory';
       fastCheckBlockDescriptionBtn.className = 'fastCheckBlockDescriptionBtn title3';
+      fastCheckBlockDescriptionBtnCount.className = 'fastCheckBlockDescriptionBtnCount'
 
       fastCheckBlock.append(fastCheckClose);
       fastCheckBlockImg.append(img);
@@ -215,6 +218,8 @@ const addStorageItems = async () => {
       fastCheckBlockDescriptionDiscount.append(fastCheckBlockDescriptionDiscountText);
       fastCheckBlockDescription.append(fastCheckBlockDescriptionDiscount);
       fastCheckBlockDescriptionBtn.append(fastCheckBlockDescriptionBtnText);
+      fastCheckBlockDescriptionBtnCount.append(fastCheckBlockDescriptionCountText);
+      fastCheckBlockDescriptionBtn.append(fastCheckBlockDescriptionBtnCount);
       fastCheckBlockDescription.append(fastCheckBlockDescriptionBtn)
       fastCheckBlock.append(fastCheckBlockDescription);
       body.append(fastCheckBlock);
@@ -229,7 +234,7 @@ const addStorageItems = async () => {
         fastCheckBlockDescriptionBtn.innerText = ('В корзине ' + selectedTodo.count + ' шт.');
         localStorage.setItem('items', JSON.stringify(getCards));
       });
-      fastCheckClose.addEventListener('click', () => {
+      fastCheckClose.addEventListener('click', (event) => {
         const getCards = JSON.parse(localStorage.getItem('items'));
         const currentElem = event.target.closest('.fastCheckBlock');
         const selectedTodo = getCards.find(
