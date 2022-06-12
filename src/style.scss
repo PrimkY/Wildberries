@@ -205,6 +205,10 @@ h6,
   }
 }
 
+.fa-solid {
+  color: #ffffff;
+}
+
 //Aside
 .menu {
   display: none;
@@ -446,15 +450,17 @@ h6,
   right: 10px;
   width: 40px;
   height: 40px;
-  border: 2px solid #000;
+  border: 1px solid #000;
   border-radius: 50%;
   cursor: pointer;
+  background-color: rgba(217, 153, 211, 0.8);
 
   .fa-plus {
     font-size: 20px;
+
   }
   &:hover {
-    background-color: #cccccc;
+    background-color: $header__color;
   }
 
 }
@@ -529,9 +535,11 @@ h6,
   height: 90%;
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
-  border: 3px solid gray;
+  background-color: #ffffff;
+  border: 1px solid #000000;
   border-radius: 25px;
+  padding: 20px;
+
 }
 
 .fastCheckClose{
@@ -541,15 +549,30 @@ h6,
   cursor: pointer;
 }
 
+.fa-circle-xmark {
+  font-size: 32px;
+}
+
 .fastCheckClose:hover{
   transform: scale(1.1);
 }
 
 .fastCheckBlockImg{
-  display: inline-block;
-  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 50%;
   object-fit: fill;
   padding: 50px 40px;
+  .popular__img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.fastCheckBlockDescription{
+  padding-top: 50px;
+  min-width: 50%;
 }
 
 
@@ -570,12 +593,13 @@ h6,
   bottom: 30px;
   border-radius: 10px;
   cursor: pointer;
+  border: none;
+  background-color: $header__color;
+  color: #ffffff;
 }
 
 .fastCheckBlockDescriptionBtn:hover{
-  background-color: #eda4ed;
-  color: gray;
-  border-color: gray;
+  transform: scale(1.1);
 }
 
 .fastCheckBlockDescriptionBtn:active{
@@ -696,6 +720,10 @@ h6,
   .fa-basket-shopping {
     margin-top: 5px;
   }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -771,6 +799,10 @@ h6,
     height: 300px;
   }
 
+  .slider__control {
+    top: 45%;
+  }
+
   .slider {
     height: 300px;
   }
@@ -802,6 +834,7 @@ h6,
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 @media only screen and (max-width: 750px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -811,7 +844,7 @@ h6,
   }
 
   .slider__control {
-    margin-top: -150px;
+    top: 40%;
   }
 
   .slider {
@@ -826,16 +859,21 @@ h6,
     height: 250px;
   }
 
-  .fastCheckBlockDescriptionBtn{
-    width: 200px;
-    font-size: 16px;
+  .fastCheckBlock {
+    flex-direction: column;
+    justify-content: start;
   }
 
-  .fastCheckBlockDescriptionBtnCount{
-    font-size: 14px;
+  .fastCheckBlockImg {
+    max-height: 50%;
+    padding: 10px;
+  }
+
+  .fastCheckBlockDescription {
+    max-height: 50%;
+    padding: 10px;
   }
 }
-
 
 @media only screen and (max-width: 600px) {
   .header__logo {
@@ -877,25 +915,19 @@ h6,
     height: 200px;
   }
 
-  .fastCheckBlockImg{
-    width: 50%;
-    padding: 20px 10px;
-    object-fit: cover;
-    align-self: center;
+  .slider__control {
+    top: 35%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .fastCheckBlockImg {
+    max-height: 40%;
+    padding: 10px;
   }
 
-  .fastCheckBlock{
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  .fastCheckBlockDescription{
-    text-align: center;
-    padding-top: 0;
-  }
-
-  .fastCheckBlockDescriptionBtn{
-    bottom: 5px;
-    left: 50%;
-    transform: translate(-50%, 0);
+  .fastCheckBlockDescription {
+    max-height: 60%;
+    padding: 10px;
   }
 }
