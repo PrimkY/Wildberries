@@ -1,6 +1,9 @@
 // @ts-ignore
-
+import './assets/styles/chief-slider.min.css'
 import './style.scss';
+import { slider } from "./assets/scripts/slider";
+
+slider();
 
 const aside = document.querySelector('.menu');
 const close = document.querySelector('.menu__close');
@@ -63,7 +66,7 @@ const addStorageItems = async () => {
     const counter = document.createElement('span');
     const addPlus = document.createElement('i');
 
-    if (count > 0) {   
+    if (count > 0) {
       addBtn.style.display = 'block';
     }
 

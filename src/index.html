@@ -71,16 +71,37 @@
     </aside>
 
     <section class="board">
-      <button class="board__prev"><i class="fa-solid fa-arrow-left"></i></button>
-      <button class="board__next"><i class="fa-solid fa-arrow-right"></i></button>
-      <ul class="board__nav">
-        <li class="board__item board__item--acive"></li>
-        <li class="board__item"></li>
-        <li class="board__item"></li>
-        <li class="board__item"></li>
-        <li class="board__item"></li>
-      </ul>
-    </section>
+      <div class="slider__container">
+
+        <div class="slider">
+          <div class="slider__wrapper">
+            <div class="slider__items">
+              <div class="slider__item">
+                <img src="https://images.wbstatic.net/bners1/big_electro_1006.jpg" alt="image">
+              </div>
+              <div class="slider__item">
+                <img src="https://images.wbstatic.net/bners1/10_rondell_desc_1440x370_RD.jpg" alt="image">
+              </div>
+              <div class="slider__item">
+                <img src="https://images.wbstatic.net/bners1/big_dress_1006.jpg" alt="image">
+              </div>
+              <div class="slider__item">
+                <img src="https://images.wbstatic.net/bners1/big_white_friday_1106.jpg" alt="image">
+              </div>
+            </div>
+          </div>
+          <a href="" class="slider__control" data-slide="prev"></a>
+          <a href="" class="slider__control" data-slide="next"></a>
+          <ol class="slider__indicators">
+            <li data-slide-to="0"></li>
+            <li data-slide-to="1"></li>
+            <li data-slide-to="2"></li>
+            <li data-slide-to="3"></li>
+            <li data-slide-to="4"></li>
+          </ol>
+        </div>
+
+      </div>
 
     <section class="popular">
       <h2 class="popular__title">Хиты продаж</h2>
