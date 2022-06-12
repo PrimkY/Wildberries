@@ -59,6 +59,7 @@ const addStorageItems = async () => {
     const addBtn = document.createElement('button');
     const priceRow = document.createElement('div');
     const priceNow = document.createElement('p');
+    const priceLater = document.createElement('p');
     const addBtnPlus = document.createElement('i');
     const nameItem = document.createElement('div');
     const hiddenBlock = document.createElement('div');
@@ -79,11 +80,12 @@ const addStorageItems = async () => {
     const discountPopTxtNode = document.createTextNode(discount + '%');
     const priceNowTxt = document.createTextNode(price + ' BYN');
     const nameItemTxtNode = document.createTextNode(title + '');
-
+    const priceLaterTxt = document.createTextNode(Math.ceil(price / (100 - discount) * 100)  + ' BYN');
 
     fastCheck.append(fastCheckTxtNode);
     discountPop.append(discountPopTxtNode);
     priceNow.append(priceNowTxt);
+    priceLater.append(priceLaterTxt);
     nameItem.append(nameItemTxtNode);
 
     liItem.className = 'popular__item';
@@ -95,6 +97,7 @@ const addStorageItems = async () => {
     addBtnPlus.className = 'fa-solid fa-plus';
     priceRow.className = 'popular__price-row';
     priceNow.className = 'popular__price-now';
+    priceLater.className = 'popular__price-later';
     nameItem.className = 'popular__name';
     addMinus.className = 'fa-solid fa-minus minus--hidden';
     addPlus.className = 'fa-solid fa-plus plus--hidden';
@@ -108,6 +111,7 @@ const addStorageItems = async () => {
     card.append(addBtn);
     liItem.append(priceRow);
     priceRow.append(priceNow);
+    priceRow.append(priceLater);
     row.append(liItem);
     liItem.append(nameItem);
 
