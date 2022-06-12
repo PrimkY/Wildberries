@@ -222,19 +222,16 @@ const addStorageItems = async () => {
       fastCheckBlockDescriptionBtn.addEventListener('click', (event) =>{
         const getCards = JSON.parse(localStorage.getItem('items'));
         const currentElem = event.target.closest('.fastCheckBlock');
-        console.log(currentElem);
         const selectedTodo = getCards.find(
           (item) => +item.id === +currentElem.dataset.id
         );
         selectedTodo.count++;
-        console.log(selectedTodo);
         fastCheckBlockDescriptionBtn.innerText = ('В корзине ' + selectedTodo.count + ' шт.');
         localStorage.setItem('items', JSON.stringify(getCards));
       });
       fastCheckClose.addEventListener('click', () => {
         const getCards = JSON.parse(localStorage.getItem('items'));
         const currentElem = event.target.closest('.fastCheckBlock');
-        console.log(currentElem);
         const selectedTodo = getCards.find(
           (item) => +item.id === +currentElem.dataset.id
         );
