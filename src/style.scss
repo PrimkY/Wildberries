@@ -525,7 +525,6 @@ h6,
   }
 }
 
-//fast check
 .fastCheckBlock{
   position: fixed;
   left: 50%;
@@ -540,6 +539,7 @@ h6,
   border: 1px solid #000000;
   border-radius: 25px;
   padding: 20px;
+
 }
 
 .fastCheckClose{
@@ -575,6 +575,12 @@ h6,
   min-width: 50%;
 }
 
+
+.fastCheckBlockDescription{
+  padding-top: 50px;
+  width: 100%;
+}
+
 .fastCheckBlockDescriptionCategory{
   padding: 15px 0;
 }
@@ -602,7 +608,54 @@ h6,
   border-color: white;
 }
 
+.fastCheckBlockDescriptionBtnCount{
+  font-size: 14px;
+}
+
 //Responsive / Media queries
+@media only screen and (min-width: 1980px) {
+  h2 {
+    font-size: 80px;
+    font-weight: 700;
+  }
+  
+  h3 {
+    font-size: 50px;
+    font-weight: 700;
+  }
+
+.fastCheckClose{
+  font-size: 100px;
+}
+
+  .fastCheckBlockImg {
+    width: 900px;
+    padding-top: 30px;
+    padding-bottom: 0;
+  }
+
+  .fastCheckBlockDescription{
+    padding-top: 100px;
+  }
+
+  .fastCheckBlockDescriptionCategory{
+    padding: 40px 0;
+  }
+
+  .fastCheckBlockDescriptionBtn{
+    font-size: 40px;
+    width: 500px;
+    height: 100px;
+    border-radius: 30px;
+  }
+
+  .fastCheckBlockDescriptionBtnCount{
+    font-size: 30px;
+    padding-top: 10px;
+  }
+}
+
+
 @media only screen and (max-width: 1200px) {
   body {
     font: 400 19px/21px 'Source Sans Pro';
