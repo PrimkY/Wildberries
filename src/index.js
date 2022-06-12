@@ -80,7 +80,7 @@ const addStorageItems = async () => {
     const discountPopTxtNode = document.createTextNode(discount + '%');
     const priceNowTxt = document.createTextNode(price + ' BYN');
     const nameItemTxtNode = document.createTextNode(title + '');
-    const priceLaterTxt = document.createTextNode(Math.ceil(price / (100 - discount) * 100)  + ' BYN');
+    const priceLaterTxt = document.createTextNode(Math.ceil(price / (100 - discount) * 10000) / 100 + ' BYN');
 
     fastCheck.append(fastCheckTxtNode);
     discountPop.append(discountPopTxtNode);
