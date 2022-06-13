@@ -259,7 +259,6 @@ const addStorageItems = async () => {
           card.append(discountPop);
         }
       });
-
     });
   };
 
@@ -267,6 +266,7 @@ const addStorageItems = async () => {
     function randomItems() {
       for (let i = 0; i < 6; i++) {
         const randCard = allItems[Math.ceil(Math.random() * 100)];
+        console.log(randCard.category);
         addItem(
           randCard.category,
           randCard.title,
@@ -363,7 +363,65 @@ const addStorageItems = async () => {
           randCard.id
         );
       }
-    } else {
+    } else if(lastElem === 'basket.html') {
+      row.style.gridTemplateColumns = '1fr';
+      const randCardId = allItems.filter(elem => {
+        return elem.count > 0;
+      });
+      if(randCardId.length > 0) {
+        const totalWrap = document.querySelector('.popular__total');
+        totalWrap.style.display = 'flex';
+        const popularTitle = document.querySelector('.popular__title');
+        popularTitle.style.display = 'block';
+        let totalPrice = 0;
+        for (let i = 0; i < randCardId.length; i++) {
+        let randCard = randCardId[i];
+        addItem(
+          randCard.category,
+          randCard.title,
+          randCard.discount,
+          randCard.price,
+          randCard.count,
+          randCard.url,
+          randCard.id
+        );
+        totalPrice += randCardId[i].price * randCardId[i].count;
+      }
+      const totalHtmlPrice = document.querySelector('.popular__total-price');
+      totalHtmlPrice.innerText = Math.ceil(totalPrice * 100) / 100 + ' BYN';
+      const liItem = document.querySelectorAll('.popular__item');
+      for (const iterator of liItem) {
+        iterator.style.border = '2px solid #cdcdcd';
+        iterator.style.borderRadius = '16px';
+        iterator.style.display = 'grid';
+        iterator.style.gridTemplateColumns = 'repeat(3, 1fr)';
+        iterator.style.alignItems = 'center';
+        iterator.style.justifyItems = 'center';
+      }
+      const priceRow = document.querySelectorAll('.popular__price-row');
+      for (const iterator of priceRow) {
+        iterator.style.justifyContent = 'normal';
+      }
+      const priceNow = document.querySelectorAll('.popular__price-now');
+      for (const iterator of priceNow) {
+        iterator.style.marginRight = '30px';
+      }
+      const card = document.querySelectorAll('.popular__card');
+      for (const iterator of card) {
+        iterator.style.width = '100%';
+        iterator.style.hover = 'none';
+      }
+      const popularImg = document.querySelectorAll('.popular__img');
+      for (const iterator of popularImg) {
+        iterator.style.border = 'none';
+      }
+
+      } else {
+        const hiddenAnswer = document.querySelector('.popular__hidden');
+        hiddenAnswer.style.display = 'block';
+      }
+
+    }  else {
       randomItems();
     }
   };
