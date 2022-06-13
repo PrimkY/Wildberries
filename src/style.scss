@@ -356,7 +356,7 @@ h6,
 
 .popular__title {
   margin-left: 50px;
-  display: none;
+  display: block;
 }
 
 .popular__row {
@@ -487,10 +487,12 @@ h6,
 
 .popular__total {
   display: none;
-  margin-top: 50px;
+  position: absolute;
+  right: 5%;
+  margin-top: -60px;
 }
 .popular__total-title {
-  margin-right: 80px;
+  margin-right: 40px;
   font-size: 50px;
   font-weight: bold;
 }
@@ -503,7 +505,7 @@ h6,
   display: none;
   margin-top: 30px;
   margin-left: 50%;
-  transform: translateX(-50%);  
+  transform: translateX(-50%);
   text-align: center;
 }
 .hidden__title {
@@ -758,6 +760,21 @@ h6,
 }
 
 @media only screen and (max-width: 992px) {
+  .popular__total {
+    display: none;
+    position: absolute;
+    right: 5%;
+    margin-top: -50px;
+  }
+  .popular__total-title {
+    margin-right: 20px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  .popular__total-price {
+    font-size: 35px;
+    font-weight: bold;
+  }
   .header {
     grid-template-columns: 1fr 4fr 1fr;
     justify-self: center;
@@ -831,7 +848,7 @@ h6,
   }
 
   .slider__control {
-    top: 45%;
+    margin-top: 0;
   }
 
   .slider {
@@ -868,6 +885,14 @@ h6,
 }
 
 @media only screen and (max-width: 750px) {
+
+  .popular__total-title {
+    margin-right: 20px;
+    font-size: 30px;
+  }
+  .popular__total-price {
+    font-size: 30px;
+  }
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -876,7 +901,7 @@ h6,
   }
 
   .slider__control {
-    top: 40%;
+    margin-top: 0;
   }
 
   .slider {
@@ -929,7 +954,8 @@ h6,
   }
 
   .grid {
-    grid-template-columns: repeat(5, 1fr);
+    margin-top: 60px;
+    grid-template-columns: repeat(2, 1fr);
   }
   .slider__container{
     height: 200px;
@@ -948,7 +974,7 @@ h6,
   }
 
   .slider__control {
-    top: 35%;
+    margin-top: 0;
   }
 }
 
@@ -961,5 +987,26 @@ h6,
   .fastCheckBlockDescription {
     max-height: 60%;
     padding: 10px;
+  }
+  .popular__total {
+    display: none;
+    position: absolute;
+    margin: 0 10%;
+  }
+  .popular__total-title {
+    margin-right: 40px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .popular__total-price {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+}
+
+@media only screen and (max-width: 440px) {
+  .grid{
+    grid-template-columns: repeat(1, 1fr);
   }
 }

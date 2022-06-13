@@ -259,7 +259,6 @@ const addStorageItems = async () => {
           card.append(discountPop);
         }
       });
-
     });
   };
 
@@ -267,6 +266,7 @@ const addStorageItems = async () => {
     function randomItems() {
       for (let i = 0; i < 6; i++) {
         const randCard = allItems[Math.ceil(Math.random() * 100)];
+        console.log(randCard.category);
         addItem(
           randCard.category,
           randCard.title,
@@ -368,9 +368,6 @@ const addStorageItems = async () => {
       const randCardId = allItems.filter(elem => {
         return elem.count > 0;
       });
-
-
-      //For dear Valentin) ==================================================================================================================
       if(randCardId.length > 0) {
         const totalWrap = document.querySelector('.popular__total');
         totalWrap.style.display = 'flex';
@@ -388,10 +385,10 @@ const addStorageItems = async () => {
           randCard.url,
           randCard.id
         );
-        totalPrice += randCardId[i].price;
+        totalPrice += randCardId[i].price * randCardId[i].count;
       }
       const totalHtmlPrice = document.querySelector('.popular__total-price');
-      totalHtmlPrice.innerText = Math.round(totalPrice) + ' BYN';
+      totalHtmlPrice.innerText = Math.ceil(totalPrice * 100) / 100 + ' BYN';
       const liItem = document.querySelectorAll('.popular__item');
       for (const iterator of liItem) {
         iterator.style.border = '2px solid #cdcdcd';
@@ -423,8 +420,6 @@ const addStorageItems = async () => {
         const hiddenAnswer = document.querySelector('.popular__hidden');
         hiddenAnswer.style.display = 'block';
       }
-
-
 
     }  else {
       randomItems();
