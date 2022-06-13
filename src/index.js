@@ -80,7 +80,7 @@ const addStorageItems = async () => {
     const discountPopTxtNode = document.createTextNode(discount + '%');
     const priceNowTxt = document.createTextNode(price + ' BYN');
     const nameItemTxtNode = document.createTextNode(title + '');
-    const priceLaterTxt = document.createTextNode(Math.ceil(price / (100 - discount) * 100)  + ' BYN');
+    const priceLaterTxt = document.createTextNode(Math.ceil(price / (100 - discount) * 10000) / 100 + ' BYN');
 
     fastCheck.append(fastCheckTxtNode);
     discountPop.append(discountPopTxtNode);
@@ -189,11 +189,13 @@ const addStorageItems = async () => {
       const fastCheckBlockDescriptionDiscount = document.createElement('h3');
       const fastCheckBlockDescriptionDiscountText = document.createTextNode('Вы экономите: ' + discount + '%');
       const fastCheckBlockDescriptionBtn = document.createElement('button');
-      let fastCheckBlockDescriptionBtnText = document.createTextNode('Добавить в корзину');
+      const fastCheckBlockDescriptionBtnText = document.createTextNode('Добавить в корзину');
+      const fastCheckBlockDescriptionBtnCount = document.createElement('p');
+      let fastCheckBlockDescriptionCountText = document.createTextNode('')
 
 
       if (counter.innerText > 0){
-        fastCheckBlockDescriptionBtnText = ('В корзине ' + counter.innerText + ' шт.');
+        fastCheckBlockDescriptionCountText = ('В корзине ' + counter.innerText + ' шт.');
       };
 
       fastCheckBlock.className = 'fastCheckBlock';
@@ -202,6 +204,7 @@ const addStorageItems = async () => {
       fastCheckClose.className = 'fastCheckClose fa-regular fa-circle-xmark fa-2x';
       fastCheckBlockDescriptionCategory.className = 'fastCheckBlockDescriptionCategory';
       fastCheckBlockDescriptionBtn.className = 'fastCheckBlockDescriptionBtn title3';
+      fastCheckBlockDescriptionBtnCount.className = 'fastCheckBlockDescriptionBtnCount'
 
       fastCheckBlock.append(fastCheckClose);
       fastCheckBlockImg.append(img);
@@ -215,6 +218,8 @@ const addStorageItems = async () => {
       fastCheckBlockDescriptionDiscount.append(fastCheckBlockDescriptionDiscountText);
       fastCheckBlockDescription.append(fastCheckBlockDescriptionDiscount);
       fastCheckBlockDescriptionBtn.append(fastCheckBlockDescriptionBtnText);
+      fastCheckBlockDescriptionBtnCount.append(fastCheckBlockDescriptionCountText);
+      fastCheckBlockDescriptionBtn.append(fastCheckBlockDescriptionBtnCount);
       fastCheckBlockDescription.append(fastCheckBlockDescriptionBtn)
       fastCheckBlock.append(fastCheckBlockDescription);
       body.append(fastCheckBlock);
@@ -222,19 +227,16 @@ const addStorageItems = async () => {
       fastCheckBlockDescriptionBtn.addEventListener('click', (event) =>{
         const getCards = JSON.parse(localStorage.getItem('items'));
         const currentElem = event.target.closest('.fastCheckBlock');
-        console.log(currentElem);
         const selectedTodo = getCards.find(
           (item) => +item.id === +currentElem.dataset.id
         );
         selectedTodo.count++;
-        console.log(selectedTodo);
         fastCheckBlockDescriptionBtn.innerText = ('В корзине ' + selectedTodo.count + ' шт.');
         localStorage.setItem('items', JSON.stringify(getCards));
       });
-      fastCheckClose.addEventListener('click', () => {
+      fastCheckClose.addEventListener('click', (event) => {
         const getCards = JSON.parse(localStorage.getItem('items'));
         const currentElem = event.target.closest('.fastCheckBlock');
-        console.log(currentElem);
         const selectedTodo = getCards.find(
           (item) => +item.id === +currentElem.dataset.id
         );
@@ -282,7 +284,6 @@ const addStorageItems = async () => {
     const lastElem = splitElem[splitElem.length - 1];
 
     if (lastElem === 'books.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'books';
       });
@@ -299,7 +300,6 @@ const addStorageItems = async () => {
         );
       }
     } else if (lastElem === 'shoes.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'Shoes';
       });
@@ -316,7 +316,6 @@ const addStorageItems = async () => {
         );
       }
     } else if (lastElem === 'sport.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'sport';
       });
@@ -333,7 +332,6 @@ const addStorageItems = async () => {
         );
       }
     } else if (lastElem === 'toys.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'toys';
       });
@@ -350,7 +348,6 @@ const addStorageItems = async () => {
         );
       }
     } else if (lastElem === 'accessories.html') {
-      row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr))';
       const randCardId = allItems.filter((elem) => {
         return elem.category === 'accessories';
       });
@@ -367,12 +364,20 @@ const addStorageItems = async () => {
         );
       }
     } else if(lastElem === 'basket.html') {
-      row.style.gridTemplateColumns = '18%';
+      row.style.gridTemplateColumns = '1fr';
       const randCardId = allItems.filter(elem => {
         return elem.count > 0;
       });
-      let totalPrice = 0;
-      for (let i = 0; i < randCardId.length; i++) {
+
+
+      //For dear Valentin) ==================================================================================================================
+      if(randCardId.length > 0) {
+        const totalWrap = document.querySelector('.popular__total');
+        totalWrap.style.display = 'flex';
+        const popularTitle = document.querySelector('.popular__title');
+        popularTitle.style.display = 'block';
+        let totalPrice = 0;
+        for (let i = 0; i < randCardId.length; i++) {
         let randCard = randCardId[i];
         addItem(
           randCard.category,
@@ -387,7 +392,41 @@ const addStorageItems = async () => {
       }
       const totalHtmlPrice = document.querySelector('.popular__total-price');
       totalHtmlPrice.innerText = Math.round(totalPrice) + ' BYN';
-    } else {
+      const liItem = document.querySelectorAll('.popular__item');
+      for (const iterator of liItem) {
+        iterator.style.border = '2px solid #cdcdcd';
+        iterator.style.borderRadius = '16px';
+        iterator.style.display = 'grid';
+        iterator.style.gridTemplateColumns = 'repeat(3, 1fr)';
+        iterator.style.alignItems = 'center';
+        iterator.style.justifyItems = 'center';
+      }
+      const priceRow = document.querySelectorAll('.popular__price-row');
+      for (const iterator of priceRow) {
+        iterator.style.justifyContent = 'normal';
+      }
+      const priceNow = document.querySelectorAll('.popular__price-now');
+      for (const iterator of priceNow) {
+        iterator.style.marginRight = '30px';
+      }
+      const card = document.querySelectorAll('.popular__card');
+      for (const iterator of card) {
+        iterator.style.width = '100%';
+        iterator.style.hover = 'none';
+      }
+      const popularImg = document.querySelectorAll('.popular__img');
+      for (const iterator of popularImg) {
+        iterator.style.border = 'none';
+      }
+
+      } else {
+        const hiddenAnswer = document.querySelector('.popular__hidden');
+        hiddenAnswer.style.display = 'block';
+      }
+
+
+
+    }  else {
       randomItems();
     }
   };
@@ -418,12 +457,13 @@ const addStorageItems = async () => {
             itemsArr[i].url,
             itemsArr[i].id
           );
-          row.style.gridTemplateColumns = 'repeat(auto-fit, minmax(175px, 1fr)';
+          row.style.gridTemplateColumns = '';
         }
       }
       row.classList.add('grid');
       if (popularRow.innerHTML) {
         popularTitle.innerHTML = 'Результат поиска:';
+        row.style.gridTemplateColumns = '';
       } else {
         popularTitle.innerHTML = 'Ничего не найдено';
       }
@@ -443,6 +483,7 @@ const addStorageItems = async () => {
         row.classList.add('grid');
         if (popularRow.innerHTML) {
           popularTitle.innerHTML = 'Результат поиска:';
+          row.style.gridTemplateColumns = '';
         } else {
           popularTitle.innerHTML = 'Ничего не найдено';
         }
@@ -454,6 +495,7 @@ const addStorageItems = async () => {
 };
 
 addStorageItems();
+
 
 //search style
 const header = document.querySelector('.header');
